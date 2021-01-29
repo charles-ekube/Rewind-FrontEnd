@@ -34,7 +34,7 @@
     margin: auto;
 }
 
-input{
+.form-container input{
     border: none;
     border-bottom: 1px solid #ffffff;
     width: 100%;
@@ -44,11 +44,11 @@ input{
     margin-bottom: 10px;
 }
 
-input:focus{
+.form-container input: focus{
     color: #fafafa;
 }
 
-input::placeholder{
+.form-container input::placeholder{
     color: #82869A;
     font-family: Avenir Next LT Pro;
     font-size: 14px;
@@ -92,7 +92,7 @@ select{
     text-align: left;
 }
 
-label {
+ .form-container label {
     display: block;
     padding: 3px ;
     margin-bottom: 10px;
