@@ -12,26 +12,46 @@ const Upload = () => {
             
             console.log(data);
 
-            // const actualBtn = document.getElementById('actual-btn');
+            const actualBtn = document.getElementById('customInput1');
 
-            // const fileChosen = document.getElementById('fileChosen');
-            // setFileInput(React.createRef())
+            const fileChosen = document.getElementById('fileChosen');
+        //    setFileInput(React.createRef())
 
-            // actualBtn.addEventListener('change', function(){
-            // fileChosen.textContent = this.files[0].name
-            // fileChosen.setAttribute("hidden");
+            actualBtn.addEventListener('change', function(){
+            fileChosen.textContent = this.files[0].name
+            fileChosen.setAttribute("hidden");
 
             
 
 
-            // })
+            })
         };
         
-        const handleClick =(e)=>{
-            
-            e.preventDefault()
-            console.log(e.target)
+        const handleFileChange = (e)=>{
+            if(e.id === "customInput1"){
+                const fileChosenTextValue = document.getElementById('fileChosen1');
+
+                if(document.getElementById('customInput1').files[0]){
+                    fileChosenTextValue.innerText = document.getElementById('customInput1').files[0].name
+                }
+                else{
+                    fileChosenTextValue.innerText = "No file chosen"
+                }
+            }
+            else
+            {
+                const fileChosenTextValue = document.getElementById('fileChosen2');
+
+                if(document.getElementById('customInput2').files[0]){
+                    fileChosenTextValue.innerText = document.getElementById('customInput2').files[0].name
+                }
+                else{
+                    fileChosenTextValue.innerText = "No file chosen"
+                }
+            }
         }
+
+        
 
 
     
@@ -129,23 +149,23 @@ const Upload = () => {
             </section>
 
             <section className="movie-container">
-                    <div className="custom-upload">
-                    <label htmlFor="actual-btn" >
-                    <input type="file" id="actual-btn" onChange={handleClick}  hidden />
+                    <div className="customUpload1">
+                    <label htmlFor="customInput1" >
+                    <input type="file" id="customInput1" onChange={(e) => handleFileChange(e.target)}  hidden />
                     Choose cover image
                     </label>
                     
-                    <span id="file-chosen" hidden>No file chosen</span>
                     </div>
+                    <div id="fileChosen1" >No file chosen</div>
                     
-                    <div className="custom-upload2">
-                    <label htmlFor="actual-btn" >
-                    <input type="file" id="actual-btn" onChange={handleClick} hidden/>
+                    <div className="customUpload2">
+                    <label htmlFor="customInput2" >
+                    <input type="file" id="customInput2" onChange={(e) => handleFileChange(e.target)} hidden/>
                     Choose movie
                     </label>
-                    
-                    <span id="file-chosen" hidden>No file chosen</span>
                     </div>
+                    <div id="fileChosen2">No file chosen</div>
+            
             </section>
                  
             

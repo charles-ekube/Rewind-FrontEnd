@@ -117,8 +117,8 @@
 .movie-container{
     display: flex;
     flex-direction: column ;
-    color:#F7ADA2;
     width: 40%;
+    color:#FFFFFF;
     position: relative;
     overflow:hidden;
     align-content: center;
@@ -126,7 +126,7 @@
 }
 
 
-.custom-upload, .custom-upload2 {
+.customUpload1, .customUpload2 {
     color:white;
     border: none;
     display: inline-block;
