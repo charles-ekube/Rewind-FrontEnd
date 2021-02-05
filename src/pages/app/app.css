@@ -53,6 +53,7 @@ font-family: Avenir Next LT Pro;
 font-style: normal;
 font-weight: 600;
 font-size: 64px;
+padding-bottom: 16px;
 line-height: 56px;
 text-align: center;
 color: #F8F8FF;
@@ -61,10 +62,23 @@ color: #F8F8FF;
 height: 56px;
 font-family: Avenir Next LT Pro;
 font-style: normal;
+padding-bottom: 16px;
 font-weight: 600;
 font-size: 40px;
 line-height: 56px;
 color: #F8F8FF;
+}
+.overlay-content h6 {
+    font-family: Avenir Next LT Pro;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 56px;
+/* display: flex;
+align-items: center; */
+/* text-align: center; */
+color: #F8F8FF;
+padding-bottom: 16px;
 }
 @media only screen 
   and (min-device-width: 768px) 

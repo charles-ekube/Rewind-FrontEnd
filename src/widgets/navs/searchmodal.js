@@ -54,12 +54,12 @@ const SearchModal = ({ showSearchBar, setShowSearchBar }) => {
                 <div className="search-display-overlay">
                     {movies.map(movie => (
                         <ul className="search-list">
-                            <li className="movie-poster">
+                            <li className="search-list-movie-poster">
                                 <img src={movie.coverpics_url} alt="poster" />
                             </li>
-                            <li className="movie-details">
-                                <h4>{movie.title}</h4>
-                                <div className="movie-details-footer">
+                            <li className="search-list-movie-details">
+                                <h5>{movie.title}</h5>
+                                <div className="search-list-movie-details-footer">
                                     <span>{movie.release_date}</span>
                                     <span>B&W</span>
                                     <span>2hrs 9min</span>

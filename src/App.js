@@ -1,13 +1,9 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-// import {Landingpage} from "./pages";
-import {Landingpagenav} from "./widgets";
-// import {Card} from "./components"
-// import {RecoverPassword} from './pages';
-// import {L}
 import './App.css';
-import { Landingpage, SignUp, SignIn, Movieplayer } from "./pages";
-// import {SearchFn} from "./widgets"
+import { Landingpage, Userlandingpage, Movieplayer, SignUp, Login } from "./pages";
+import { Footer } from "./widgets/footer/footer";
+
 
 
 function App() {
@@ -26,13 +22,16 @@ function App() {
           </React.Fragment>
         )}/>
         <Route path="/Movieplayer" component={Movieplayer}/>
-        <Route path="/SignIn" component={SignIn}/>
+        <Route path="/Userlandingpage" component={Userlandingpage}/>
+        <Route path="/Login" component={Login}/>
+        <Route path="/SignUp" component={SignUp}/>
          {/* <Route path="/ProductDesignPage" component={ProductDesignPage}/>
         <Route path="/ApplyPage" component={ApplyPage}/>
         <Route path="/JournalPage" component={JournalPage}/>
         <Route path="/FaqPage" component={FaqPage}/>
         <Footer/> */}
      </Router> 
+     
   </>
   );
 }

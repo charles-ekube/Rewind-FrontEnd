@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
  
 
 
-const Landingpagenav = () => {
+const Userlandingpagenav = () => {
   AOS.init();
 
 
@@ -53,12 +53,12 @@ const Landingpagenav = () => {
               </li>
               <li className="nav-item">
                   <Link to="/Login" className="signin-btn"> 
-                    Sign In
+                    Username
                   </Link>
               </li>
               <li className="nav-item ">
-                 <Link to="/SignUp" id="signup-btn">
-                    Sign Up
+                 <Link to="/" id="signup-btn">
+                    Logout
                  </Link>
               </li>
             </ul>
@@ -74,5 +74,5 @@ const Landingpagenav = () => {
   )
 }
 
-export { Landingpagenav };
+export { Userlandingpagenav };
 

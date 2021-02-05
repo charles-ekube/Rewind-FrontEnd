@@ -33,10 +33,13 @@ const Card = ({ movies, isLoading }) => {
     //     }catch(err) {
     //         console.error(err); 
     //     }
-     
+    
 
     // }
 
+  const  currentVideo = (currentMovie) => {
+console.log(currentMovie);
+    }
     return isLoading ? <h1>Loading....</h1> : <main className="card-grid">
         {/* this.state.movies = movies */}
             {movies.map( movie => (
@@ -51,9 +54,10 @@ const Card = ({ movies, isLoading }) => {
                                 
                                 
                                 </Link> */}
-                                <iframe src={movie.movie_url}>
-                                    <img src={Playicon} alt='play'/>    
-                                </iframe>
+                                {/* <iframe src={movie.movie_url}>
+                                       
+                                </iframe> */}
+                                <img src={Playicon} alt='play' onclick={currentVideo(movie)}/>
                             </span>
                         </section>
                         <section className="movie-title">

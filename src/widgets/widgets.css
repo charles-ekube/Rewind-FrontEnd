@@ -5,8 +5,7 @@ header nav {
     position: fixed;
     width: 100%;
     align-items: center !important;
-    padding: 24px 120px;
-    /* margin-bottom: 100px; */
+    padding: 15px 90px;
     z-index: 5;
 }
 header nav a {
@@ -15,8 +14,12 @@ header nav a {
     padding-left: 20px;
     width: 30%;
 }
+header nav a img {
+    width: 20%;
+}
+
 header nav .nav-list-container {
-    width: 58%;
+    width: 65%;
 }
 header nav .nav-list {
     width: 95%;
@@ -30,8 +33,8 @@ header nav .nav-list {
 header nav .nav-list .nav-item {
     font-family: Avenir Next LT Pro;
 font-style: normal;
-font-weight: normal;
-font-size: 16px;
+font-weight: 400;
+font-size: 14px;
 line-height: 24px;
 letter-spacing: 0.5px;
 }
@@ -78,18 +81,20 @@ header nav .nav-list> :first-child {
 }
 .search-input {
     position: absolute;
-    top: 24px;
-    z-index: 5;
-    /* right: ; */
+    top: 15px;
+    z-index: 5;    /* right: ; */
     width: 100%;
     display: flex;
     justify-content: center;
 }
 .search-input input {
-    padding:3px;
+    padding:5px;
     border-radius: 5px;
     width: 40%;
     border: none;
+}
+::placeholder {
+    font-size: 16px;
 }
 .search-nav {
     background-color: #121212;
@@ -97,15 +102,19 @@ header nav .nav-list> :first-child {
     width: 100%;
     top: 0;
     align-items: center !important;
-    padding: 24px 120px;
+    padding: 15px 90px;
     z-index: 4;
+}
+.search-nav img {
+    width: 5.6%;
 }
 .search-display {
     background-color: #585858;
     padding : 50px;
     width: 40%;
     position: absolute;
-    top: 63px;
+    top: 50px;
+    /* border: 1px solid red; */
     z-index: 5;
 }
 .search-display span {
@@ -125,33 +134,37 @@ header nav .nav-list> :first-child {
 }
 .search-list {
     display: grid;
-    grid-template-columns: 20% 60%;
-    gap: 15px;
+    grid-template-columns: 15% 80%;
+    /* gap: 15px; */
     height: 102px;
     width: 100%;
-    padding: 5px;
+    padding: 20px;
     list-style: none;
 }
 .search-list:hover {
-    background-color: #121212;
+    background-color: red;
 }
 
 .search-list-movie-poster img{
-    width: 80px !important;
-    height: 90px !important;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
 }
 .search-list-movie-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.search-list-movie-details h4 {
-font-family: SF Pro Display;
-font-style: normal;
-font-weight: bold;
-font-size: 24px;
-line-height: 24px;
-color: #FFFFFF;
+.search-list-movie-details h5 {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -1px; 
+    color: #FFFFFF;
 }
 .search-list-movie-details-footer {
 display: flex;
