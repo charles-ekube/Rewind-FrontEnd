@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+.prac-nav {
+  background-color: #000000;
+}
+
+.prac-dashboard-icon {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 30px;
+}
+
+.search,
+.notification-bell,
+.prac-profile-avatar,
+h3 {
+  padding: 0 20px;
+}
+
+.prac-profile-container {
+  display: flex;
+}
+
+.prac-profile-container h3 {
+  color: #8c8c8c;
+  /* font-family: SF Pro Display; */
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+  margin: 15px;
+}
+
+.prac-profile-avatar img {
+  border-radius: 50%;
+  font-size: 10px;
+  border: 2px solid #858585;
+}
+/* .prac-nav {
+    width: 100%;
+    height: 80px;
+    background-color: #000000;
+    position: fixed;
+    align-items: flex-end;
+    z-index: 4;
+  }
+  
+  .dashboard-icon {
+    display: flex;
+  }
+  .profile-container {
+    display: flex;
+  }
+  
+  .profile-container h3 {
+    color: palegreen;
+  }
+  
+  .profile-avatar img {
+    border-radius: 50%;
+    border: 5px solid palegreen;
+  } */

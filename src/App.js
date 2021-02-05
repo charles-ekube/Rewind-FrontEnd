@@ -1,10 +1,14 @@
+
 import React from "react";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Landingpagenav} from "./widgets";
+
 import './App.css';
-import { Landingpage, Userlandingpage, Movieplayer, SignUp, Login } from "./pages";
-import { Footer } from "./widgets/footer/footer";
+import { Landingpage, SignUp, SignIn, Movieplayer } from "./pages";
 
-
+import { Signup } from "./pages";
+import { Dashboard } from "./pages";
+import { Footer } from "./components";
 
 function App() {
 
@@ -22,16 +26,11 @@ function App() {
           </React.Fragment>
         )}/>
         <Route path="/Movieplayer" component={Movieplayer}/>
-        <Route path="/Userlandingpage" component={Userlandingpage}/>
-        <Route path="/Login" component={Login}/>
-        <Route path="/SignUp" component={SignUp}/>
-         {/* <Route path="/ProductDesignPage" component={ProductDesignPage}/>
-        <Route path="/ApplyPage" component={ApplyPage}/>
-        <Route path="/JournalPage" component={JournalPage}/>
-        <Route path="/FaqPage" component={FaqPage}/>
-        <Footer/> */}
+        <Route path="/SignIn" component={SignIn}/>
+           <Route path="/sign-up" component={Signup} />
+          <Route path="/dash" component={Dashboard} />
      </Router> 
-     
+<Footer/>
   </>
   );
 }
