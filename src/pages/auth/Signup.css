@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* grid-box contains the signup-info and signup-image */
+.grid-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    /* margin: 10px auto; */
+    /* box-shadow: 1px 3px 1px #636060; */
+}
+
+/* using grid to split the form and image container to 60/40  */
+.signup-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+/* signup-info holds the h2, p and form tag */
+.signup-info {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 15px 15px 0px;
+    background-color: #ffffff;
+    position: relative;
+    right: -10px;
+    z-index: 5;
+}
+
+/* form holding the label and input tag */
+form {
+    display: flex;
+    padding: 7px 70px;
+    margin: 20px;
+}
+
+.signup-info form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-info form label {
+    text-align: left;
+}
+
+.signup-info p {
+    color: rgba(40, 44, 64, 0.6);
+    size: 16px;
+    line-height: 24px;
+
+}
+
+.signup-info h2 {
+    font-family: Manrope;
+    height: 40px;
+    font-size: 36px;
+    line-height: 110%;
+    color: #1C1C1C;
+}
+
+label { 
+    margin: 0 0 15px 0;
+    padding-top: 15px;
+    font-size: 12px;
+    color: #82869A;
+    letter-spacing: 0.4px;
+    line-height: 16px;
+    font-weight: 600;
+
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid;
+    /* margin-left: 10px; */
+    /* margin: 10px; */
+}
+
+.signup-image {
+    position: relative;
+    background-image: url(../../assets/images/countdown.gif);
+    background-repeat: no-repeat;
+    height: 500px;
+    background-size: contain;
+    background-position: center;
+    border-radius: 0px 15px 15px 0px;
+    background-color: #000000;
+}
+
+.overlay-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    /* border: 2px solid red; */
+    border-radius: 0 15px 15px 0;
+    background-color: black;
+    opacity: 0.9;
+    
+}
+.overlay-bg {
+    background-image: url(../../assets/images/lights.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.1;
+    height: 400px;
+    width: 100%;
+}
+
+
+.button1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    height: 24px;
+    width: 76px;
+    border: none;
+    /* border-radius: 5px; */
+    background-color: #BD220B;
+    color: #ffffff;
+    line-height: 24px;
+    font-size: 20px;
+    letter-spacing: 0.15px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.button1 {
+    /* position: absolute;s */
+    width: 376px;
+    height: 55px;
+    border-radius: 8px;
+}
+
+.acct-set-up {
+    position: absolute;
+    display: flex;
+    align-content: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26.1px;
+    z-index: 6;
+    bottom: 31px;
+    left: 257px;
+}
+.button2 {
+    position: absolute;
+    display: flex;
+    align-content: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 7;
+    bottom: 30px;
+    left: 410px;
+    border: none;
+    color: #fcb6b6;
+    background-color: #fdfdfd00;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26.1px;
+}
