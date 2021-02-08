@@ -1,99 +1,156 @@
-import React from "react";
-import './Signup.css';
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
-import axios from 'axios';
+import { Google, Facebook, Or, Twitter, Logo } from "../../assets";
+import "./Sign_up.css";
+import { Link } from "react-router-dom";
+import axios from "axios"
 
-const Signup = () => {
-    const { handleSubmit, handleChange, errors, register } = useForm()
+const SignUp = () => {
 
-    const onSubmit = (values) => {
-        // e.preventDefault();
-        // console.log(values);
+  const { register, handleSubmit, errors, watch } = useForm();
+  const password = useRef({});
+  password.current = watch("password", "");
+  const emailReg = '/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
+  // const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-        const post = async () => {
-            await axios.post('https://rewind-api.herokuapp.com/users/sign-up', {
-            
 
-            })
-            .then(response => {
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error.response)
-            });
-        }
-        
-           
+  const onSubmit = (data) => {
+    console.log(data);
+
+    axios.post("https://rewind-api.herokuapp.com/users/sign-up", data).then((d) => {
+      console.log(d);
+      if (d.status === 201) {
+
+        // swal({
+        //   title: "Successfully Registered",
+        //   text: "Redirecting........",
+        //   type: "success"
+        // })
+        alert('done');
+      }
+
+    }).catch(err => alert(err));
+    // console.log(data);
+  }
+  const validatePassword = async (value) => {
+    // await sleep(500)
+    // let errmsg = '';
+    if (value.length < 6) {
+      return false
     }
+    else {
+      return true
+    }
+  }
+  const validateConfirmPassword = async (value) => {
+    if (value === password.current) {
+      return true
+    }
+    else {
+      return false
+    }
+  }
 
-    return (
-        <>
+  const validateEmail = async (value) => {
+    if (value.pattern === emailReg) {
+      return false
+    }
+    else {
+      return true
+    }
+  }
 
-            <section className="grid-box">
-                <section className="signup-info">
-                    <h2>Sign Up</h2>
-                    <p>Sign up to get an account</p>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <label>Username</label>
-                        <input  name="username" ref={register({ required: true })}
-                                type="text"
-                                onChange={handleChange}
-                                placeholder="Enter your username" />
-                                {/* value={values.username} */}
-                        {errors.username && <p>Username already taken</p>}
+  return (
+    <>
+      <main className="sign-up-info">
+        <section className="d-flex justify-content-center">
+          <form className="mt-5 px-5 py-4 mb-5" onSubmit={handleSubmit(onSubmit)}>
+            <img className="d-flex mx-auto" src={Logo} alt="" />
+            <h1 className="login-header ml-4">Sign Up</h1>
+            <p className="ml-4 sign-up-text">Sign up to get an account</p>
 
-                        <label>Email address</label>
-                        <input name="email" ref={register({ required: true })}
-                                type="text"
-                                //    value={values.email}
-                                onChange={handleChange}
-                                placeholder="Enter your email" />
-                            {errors.email && <p>Enter valid Email</p>}
+            <div>
+              <label className="login-label mt-3">Email address</label>
+              <input
+                className="mb-3 login-input"
+                name="email"
+                type="email"
+                placeholder="Enter your email address"
+                ref={register({ required: true, validate: validateEmail })}
+              />
+              {errors.email && <small>This field is required</small>}
+              {errors.email && errors.email.type === "validate" && (
+                <small className="error">Enter valid email</small>
+              )}
+            </div>
+            <div>
 
-                        <label>Password</label>
-                        <input name="password" ref={register({ required: true })}
-                            type="text"
-                            // value={values.password}
-                            onChange={handleChange}
-                            placeholder="Enter your password" />
-                        {errors.password && <p>Use 6 or more characters</p>}
+            <label className="login-label">Password</label>
+            <input
+              className="mb-4 login-input"
+              name="password"
+              type="text"
+              ref={register({ required : true, validate : validatePassword})}  
+              placeholder="Enter your password"
+            />
+             {errors.password && errors.password.type === "required" && (
+                            <small className="error">This field is required</small>
+                         )}
+                        {errors.password &&  errors.password.type === "validate" && (
+                            <small className="error">Password must have at least 6 characters</small>
+                        )} 
+            </div>
+            <div>
+            <label className="login-label">Confirm Password</label>
+            <input
+              className="mb-4 login-input"
+              name="confirmPassword"
+              type="text"
+              ref={register({ required : true, validate : validateConfirmPassword})}
+              placeholder="Confirm password"
+            />
+               {errors.confirmPassword && errors.confirmPassword.type === "required" && (
+                            <small className="error">This field is required</small>
+                         )}
+                        {errors.confirmPassword &&  errors.confirmPassword.type === "validate" && (
+                            <small className="error">Password does not match</small>
+                        )}
+          </div>
+            <button
+              className="d-block login-button "
+              type="submit"
+              value="Submit"
+            >
+              <p className="mr-4 mt-2">Sign Up</p>
+            </button>
 
-                        <label>Confirm password</label>
-                        <input name="confirmPassword" ref={register({ required: true })}
-                            type="text"
-                            // value={values.confirmpassword}
-                            onChange={handleChange}
-                            placeholder="Confirm your password" />
-                        {errors.confirmPassword && <p>Passwords don't match</p>}
+            <p className="or-tag">
+              <img src={Or} alt="" />
+            </p>
 
-                        <button className="button1" type="submit" value="Submit">Sign Up</button>
+            <div className="login-icons text-center mb-2 ">
+              <a href="./">
+                <img src={Facebook} alt="" />
+              </a>
+              <a href="./">
+                <img src={Google} alt="" />
+              </a>
+              <a href="./">
+                <img src={Twitter} alt="" />
+              </a>
+            </div>
 
-                        {/* const handleSubmit = (e) => {
-                            e.preventDefault();
-                            } */}
-                    </form>
-                </section>
+            <p className="text-footer mt-3 text-center">
+              Have an account?
+              <Link to="/Login" className="click" href="click">
+                Click here
+              </Link>
+            </p>
+          </form>
+        </section>
+      </main>
+    </>
+  );
+};
 
-                <section className="signup-image">
-                    <div className="overlay-container">
-                        <div className="overlay-bg">
-
-                        </div>
-                    </div>
-                    {/* <img src={Frame} alt="signup-frame"/> */}
-
-                    <div>
-                        <span className="acct-set-up">Have an account?</span>
-                        <button className="button2">Click here</button>
-                        <button>close</button>
-                    </div>
-
-                </section>
-            </section>
-            <section className="signup-container"></section>
-
-        </>
-    )
-}
-
-export { Signup }
+export { SignUp };
