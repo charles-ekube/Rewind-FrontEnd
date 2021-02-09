@@ -1,31 +1,34 @@
-import React, {useEffect, useState} from "react";
+
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Landingpagenav } from "../../widgets";
-import ReactPlayer from 'react-player';
 import axios from "axios";
-const Movieplayer = ({ movie}) => {
-    const [Movie, setMovie] = useState([]);
-    // const [isLoading, setIsLoading] = useState(true);
+
+
+
+const Movieplayer = (props) => {
+
+    const { state } = useLocation();
 
     useEffect(() => {
-        const fetchMovie = async () => {
-            const result = await axios(`https://rewind-test.herokuapp.com/movies/60112ae48fb50d020c2dcbac`)
-            console.log(result.data.message);
+        console.log(state);
+    });
 
-            setMovie(result.data.message);
-            // setIsLoading(false);
-        }
-        fetchMovie();
-    }, [])
 
     return (
         <>
-            <Landingpagenav/>        
-            <section>
-                {console.log(movie)}
-                {/* <ReactPlayer url={Movie} /> */}
+            <Landingpagenav />
+            <section className="movie-player-container">
+                <video
+                src={state?.movie}
+                controls
+                >
+                    playnow abeg
+                </video>
+                <div className="control-ft"></div>
             </section>
         </>
     )
 }
 
-export {Movieplayer}
+export { Movieplayer }

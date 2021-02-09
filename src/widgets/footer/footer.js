@@ -8,7 +8,7 @@ import "./footer.css";
 const Footer = () => {
     return (
         <>
-            <footer className=" footer-container ">
+     <footer className=" ft-container-con ">
           <img src={RewindLogo} alt="logo" />
           <p>© 2021 Rewind. All Rights Reserved.</p>
           <ul className="media-icons">

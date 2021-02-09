@@ -46,7 +46,7 @@
   border-radius: 5px;
   width: 350px;
   background-color: #bd220b;
-  margin-bottom: 20px;
+  height: 40px;
   box-shadow: 0px 10px 18px #bd220b33, 0px 0px 1px #bd220b4f;
   color: #ffffff;
   margin-left: 15px;
@@ -54,13 +54,12 @@
 
 .click {
   color: #f7ada2;
-  margin: 5px;
+  margin: 5px 0 0 5px;
 }
 
-.or-tag {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding-left: 22px;
+.or-tag  img{
+  width: 350px;
+  margin: 0 auto;
 }
 
 .text-footer {
@@ -69,6 +68,6 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
-
+text-align: center;
   letter-spacing: 0.25px;
 }
