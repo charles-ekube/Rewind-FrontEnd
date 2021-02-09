@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import { Card } from "../../components";
-import { Landingpagenav } from "../../widgets"
+import { Card, MovieModal } from "../../components";
+import { Footer, Landingpagenav } from "../../widgets"
 import { Carousel } from "react-bootstrap";
-import {Movieplayer} from "../../pages";
 import { HomeAlone, GodFather, SoundofMusic } from "../../assets";
 import "./app.css";
-const Landingpage = () => {
+
+
+const Landingpage = (props) => {
 
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +30,6 @@ const Landingpage = () => {
         
     };
 
-
     return (
         <>
             <Landingpagenav />
@@ -37,7 +37,7 @@ const Landingpage = () => {
             <section className="intro-section">
                 <div className="overlay">
                     <div className="overlay-content">
-                        <h1>Relive Your Childhood</h1>
+                        <h2>Relive Your Childhood</h2>
                         <h4>Through Movies</h4>
                         <h6>Stream 15 minutes of movie content for free</h6>
                         <button>Get Started</button>
@@ -46,7 +46,7 @@ const Landingpage = () => {
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                     <Carousel.Item>
                         <img
-                            className="d-block w-100 h-500"
+                            className="d-block  h-500"
                             src={HomeAlone}
                             alt="First slide"
                         />
@@ -68,16 +68,19 @@ const Landingpage = () => {
                 </Carousel>
             </section>
             <section>
+           
                 <Card 
                 isLoading={isLoading} 
                 movies={movies} 
                 // toggleMovieModal={toggleMovieModal}  
                 // setMovieModal={setMovieModal}
                 // movieModal={movieModal}
+                
                 />
-                <Movieplayer movies={movies}/>
+                {/* <MovieModal movies={movies}/> */}
             </section>
-
+            
+            <Footer/>
         </>
     )
 }

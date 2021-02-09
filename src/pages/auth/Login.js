@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-// import { useForm } from "react-hook-form";
+import App from '../../App';
 import { Google, Facebook, Or, Twitter, Logo } from "../../assets";
 import "./Login.css";
 import {Link, useHistory} from "react-router-dom";
 import axios from 'axios';
+import {ProtectedRoutes} from '../../pages' 
 
 const Login = () => {
   // const { register, handleSubmit } = useForm();
@@ -61,10 +62,10 @@ const Login = () => {
     <>
       <main className="login-info">
         <section className="d-flex justify-content-center">
-          <form className="mt-5 px-5 py-4" onSubmit={handleLogin}>
+          <form className="mt-4 px-5 py-4" onSubmit={handleLogin}>
             <img className="d-flex mx-auto" src={Logo} alt="" />
-            <h1 className="login-header ml-4">Sign In</h1>
-            <p className="ml-4 ">Welcome back, we missed you!</p>
+            <h1 className="login-header px-3">Sign In</h1>
+            <p className="px-3 ">Welcome back, we missed you!</p>
             <label className="login-label mt-3">Email address</label>
             <input
               className="mb-3 login-input"
@@ -116,7 +117,7 @@ const Login = () => {
                 <img src={Twitter} alt="" />
               </a>
             </div>
-            <p className="text-footer mt-3 text-center">
+            <p className="text-footer mt-3 ">
               Don’t have an account?
               <Link to="/SignUp" className="click" href="click">
                 Click here
@@ -125,6 +126,8 @@ const Login = () => {
           </form>
         </section>
       </main>
+      {/* <App user={user}/> */}
+      {/* <ProtectedRoutes user={user}/> */}
     </>
   );
 };

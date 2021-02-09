@@ -1,102 +1,64 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
 import "./cards.css";
-import {MovieModal} from "../../components";
-import {Playicon} from "../../assets"
+import { MovieModal } from "../../components";
+import { Playicon } from "../../assets"
 import AOS from "aos";
 import 'aos/dist/aos.css'
-import {Link } from "react-router-dom";
+import { CgSpinnerTwo } from 'react-icons/cg';
 
-const Card = ({ movies, isLoading }) => {
+const Card = ({ movies, isLoading }, props) => {
     AOS.init();
 
-   
+    // useEffect(() => {
+    //     console.log(movies)
+    // }, [])
+
     const [movieModal, setMovieModal] = useState(false);
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
-    const toggleMovieModal = () => {
-      setMovieModal(prev => !prev);
-    }
-
-    // const [query, setQuery] = useState('');
-    // const [movies, setMovies] = useState([]);
-    // const getMovies = async(e) => {
-    //     e.preventDefault();
-    //     // console.log("ec det weor,l")
-    //     // const query = "Karashika";
-    //     const url = `https://rewind-test.herokuapp.com/movies/search/movie?title=${query}`;
+    const toggleMovieModal = (e, movie) => {
+        setMovieModal(prev => !prev);
+        setSelectedMovie(movie);
         
-    //     try {
-            
-    //         const res = await fetch(url);
-    //         const data = await res.json();
-    //         // console.log(data);
-    //         setMovies(data.result);
-    //     }catch(err) {
-    //         console.error(err); 
-    //     }
-    
-
-    // }
-
-  const  currentVideo = (currentMovie) => {
-console.log(currentMovie);
     }
-    return isLoading ? <h1>Loading....</h1> : <main className="card-grid">
-        {/* this.state.movies = movies */}
-            {movies.map( movie => (
-                // <h1>{movie.title}</h1>
-                <section className="movie-container-holder" key={movie._id}>
-                    <div className="movie-container" >
-                        <section className="movie-poster">
-                            <img src={movie.coverpics_url} alt="poster" />
-                            <span className="movie-poster-overlay" onclick={toggleMovieModal}>
-                                
-                                {/* <Link to={`/movieplayer/${movie._id}`}>
-                                
-                                
-                                </Link> */}
-                                {/* <iframe src={movie.movie_url}>
-                                       
-                                </iframe> */}
-                                <img src={Playicon} alt='play' onclick={currentVideo(movie)}/>
-                            </span>
-                        </section>
-                        <section className="movie-title">
-                            <h4>{movie.title}</h4>
-                        </section>
-                        <section className="movie-container-footer">
-                            <ul>
-                                <li>{movie.release_date}</li>
-                                <li>Coloured</li>
-                                <li>2hr 9mins</li>
-                            </ul>
-                        </section>
-                        <MovieModal movieModal={movieModal} setMovieModal={setMovieModal}/>
-                    </div>
-                </section>
-            ))}
+
+    // const history = useHistory();
+
+
+    return  isLoading ? <h1 className="spinner animate__rotateIn"><CgSpinnerTwo/></h1> : <main
+    >
+        <section  className="card-grid">
+        {movies.map(movie => (
+            <section className="movie-container-holder"  key={movie._id}>
+                <div className="movie-container"  data-aos="fade-up" data-aos-duration="1000">
+                    <section className="movie-poster">
+                        <img src={movie.coverpics_url} alt="poster" />
+                        <span className="movie-poster-overlay" >
+                            <button onClick={(e) => toggleMovieModal(e, movie)}>click me</button>
+                            <img src={Playicon} alt='play'/>
+                        </span>
+                    </section>
+                    <section className="movie-title">
+                        <h4>{movie.title}</h4>
+                    </section>
+                    <section className="movie-container-footer">
+                        <ul>
+                            <li>{movie.release_date}</li>
+                            <li>Coloured</li>
+                            <li>2hr 9mins</li>
+                        </ul>
+                    </section>
+
+                </div>
+            </section>
+        ))}
+        <MovieModal movieModal={movieModal} selectedMovie={selectedMovie}  setMovieModal={setMovieModal} />
+        </section>
+        
     </main>
-    // return (
-    //     <main>
-    //     <section className="card-container">
-    //         <div className="card-body">
-    //             <section className="card-image">
-    //                 <img src={Junglebook} alt="poster"/> 
-    //             </section>
-    //             <section className="card-title">
-    //                 <h4>Card Title</h4>
-    //             </section>
-    //             <section className="card-text">
-    //                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-    //             </section>
-    //             <footer className="card-footer">
-    //                 <a href="google.com">Learn More</a>
-    //             </footer>
-    //         </div>
-    //     </section>
-      
-    //     </main>
-        
-    // )
+    
+    
 }
 
-export {Card}
+export { Card }

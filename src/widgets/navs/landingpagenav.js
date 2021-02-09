@@ -22,6 +22,23 @@ const Landingpagenav = () => {
   }
 
 
+  const [showMenu, setShowMenu] = useState(false);
+  let menu 
+  let menuMask 
+
+  if(showMenu) {
+    menu =  <div 
+    className="mobile-nav-menu"
+    data-aos="fade-right"
+     data-aos-offset="500"
+     data-aos-easing="ease-in-sine"
+    > 
+    this isc jvfnjfvjnvfjvnfvjfvjn the menu </div>
+
+    menuMask = <aside 
+    className="mobile-menu-mask"
+    onClick={() => setShowMenu(false)}></aside>
+  }
   return (
     <>
 
@@ -64,12 +81,14 @@ const Landingpagenav = () => {
             </ul>
 
             <span className="mobile-nav-btn">
-              <FiMenu />
+              <FiMenu  onClick={() => setShowMenu(!showMenu)}/>
             </span>
           </section>
 
         </nav>
       </header>
+      {menu}
+      {menuMask}
     </>
   )
 }

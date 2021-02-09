@@ -1,37 +1,30 @@
-
 import React from "react";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import {Landingpagenav} from "./widgets";
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import { Landingpage, SignUp, SignIn, Movieplayer } from "./pages";
+import { MovieModal } from "./components";
+import { Landingpage, SignUp, Login, Dashboard, Movieplayer, ProtectedRoutes, Userlandingpage } from "./pages";
 
-import { Signup } from "./pages";
-import { Dashboard } from "./pages";
-import { Footer } from "./components";
-
-function App() {
+function App({user}) {
 
   return (
     <>
-    
-    {/* <Landingpagenav/> */}
-    
-    {/* <SignUp/> */}
-    <Router>
+      <Router>
         
         <Route exact path="/" render={props => (
           <React.Fragment>
-                <Landingpage/>
+            <Landingpage />
           </React.Fragment>
-        )}/>
-        <Route path="/Movieplayer" component={Movieplayer}/>
-        <Route path="/SignIn" component={SignIn}/>
-           <Route path="/sign-up" component={Signup} />
-          <Route path="/dash" component={Dashboard} />
-     </Router> 
-<Footer/>
-  </>
+        )} />
+        <Route path="/movie/play/:id" component={Movieplayer} />
+        <Route path="/MovieModal/:id" component={MovieModal} />
+        <Route path="/Login" component={Login} />
+        <Route path="/SignUp" component={SignUp} />
+        <Route path="/Dashboard" component={Dashboard} />
+       
+        
+        {/* <ProtectedRoutes path='/Userlandingpage' component={Userlandingpage} user={user}/> */}
+      </Router>
+    </>
   );
 }
 
