@@ -49,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/charles-ekube/Rewind-FrontEnd.git",
+  "author": "DevNonye <abonyi.chinonye.g20@gmail.com>",
+  "license": "MIT"
 }
