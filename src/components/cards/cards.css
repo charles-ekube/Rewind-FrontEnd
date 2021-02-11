@@ -85,126 +85,108 @@ padding: 15px 0 16px 0;
 }
 
 .movie-modal-box {
-    width: 400px;
-    height: 400px;
+    width: 525px;
+    height: 514px;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-    background: red;
     position: relative;
-    top: -90px;
+    top: 0;
     z-index: 10;
     border-radius: 10px;
 }
 
 .movie-modal-box img {
     width: 100%;
-    height: 270px;
+    height: 334px;
     border-radius: 10px 10px 0 0;
+}
+.play-btn-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 334px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.play-btn-overlay img {
+    height: 100px;
+    width: 100px;
 }
 .movie-description {
     background-color: #262626;
     display: grid;
     color: #fff;
-    grid-template-columns: repeat(2, 1fr);
-    padding:24px 67px 34px 67px;
+    padding:24px 32px 24px 32px;
     border-radius: 0 0 10px 10px;
 }
 
-.movies-description-content h4 {
-    font-family: Inter;
-font-style: normal;
-font-weight: 500;
-font-size: 25px;
-line-height: 36px;
-color: #FFFFFF;
-}
-.movies-description-content ul {
-    display: flex;
-    justify-content: space-between;
-    font-family: Inter;
-font-style: normal;
-font-weight: 600;
-font-size: 10px;
-line-height: 24px;
-letter-spacing: 0.1px;
-color: #F8F8FF;
-width: 115px;
-}
-.movies-description-content ul #pg {
-    border: 1px solid #F5F5F5;
-    padding:0 5px;
-}
-
-.movies-description-content article{
-    text-align: left;
-    display: flex;
-    justify-content: flex-start;
-    padding-right: 20px;
+.movies-description-content ul li h4 {
     font-family: Avenir Next LT Pro;
     font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
     letter-spacing: 0.25px;
-    color: #F8F8FF;
+    color: #FFFFFF;
 }
-
-
-.movies-description-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left:40px;
-}
-.movies-description-details button {
-    border: none;
-    width: 90px;
-height: 30px;
-background: #BD220B;
-border-radius: 4px;
-align-self: flex-end;
-color: #fff;
-}
-.movies-description-details .cast,
-.movies-description-details .genre {
+.movies-description-content ul {
     display: grid;
-    justify-content: space-between;
-    grid-template-columns: 1% 82%;
+    align-items: center;
+    grid-template-columns:25% 50% 25%;
     width: 100%;
     font-family: Avenir Next LT Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #8C8C8C;
+}
+
+.movies-description-content ul .date-time ul {
+    display: flex;
+   justify-content: space-between;
+    border: 1px solid red;  
+}
+.movie-description .genre {
+    font-family: Avenir Next LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #8C8C8C;
+
+}
+.movie-description article{
+    font-family: Avenir Next LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.25px;
-    color: #F5F5F5;
-    padding-top: 5px;
-    
-}
-
-.movies-description-details .cast ul,
-.movies-description-details .genre ul {
+    color: #F8F8FF;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.movies-description-details .cast ul li,
-.movies-description-details .genre ul li {
-    padding: 0 1px;
-}
 
 #cd-btn {
     position: absolute;
     border-radius: 50% ;
     border:none;
-    top: 10px;
-    right: 10px;
+    top: 32px;
+    right: 34px;
     height: 40px;
     width: 40px;
     font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: inherit;
+    background: rgba(242, 210, 182, 0.4);
     opacity: 0.4;
     color: #fff;
 

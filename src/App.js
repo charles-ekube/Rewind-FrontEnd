@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import { MovieModal } from "./components";
-import { Landingpage, SignUp, Login, Dashboard, Movieplayer, ProtectedRoutes, Userlandingpage } from "./pages";
+import { Landingpage, SignUp, Login, Dashboard, Movieplayer, Userlandingpage, Upload, ForgotPassword} from "./pages";
 
-function App({user}) {
+function App() {
 
   return (
     <>
@@ -20,6 +20,10 @@ function App({user}) {
         <Route path="/Login" component={Login} />
         <Route path="/SignUp" component={SignUp} />
         <Route path="/Dashboard" component={Dashboard} />
+        <Route path="/Userlandingpage" component={Userlandingpage} />
+        <Route path="/Upload" component={Upload} />
+        <Route path="/ForgotPassword" component={ForgotPassword} />
+
        
         
         {/* <ProtectedRoutes path='/Userlandingpage' component={Userlandingpage} user={user}/> */}

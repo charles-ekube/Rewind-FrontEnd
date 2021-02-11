@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import { Card, MovieModal } from "../../components";
+import { Card, TabNav, Tab } from "../../components";
 import { Footer, Landingpagenav } from "../../widgets"
 import { Carousel } from "react-bootstrap";
 import { HomeAlone, GodFather, SoundofMusic } from "../../assets";
 import "./app.css";
+import "../../components/tabs/tabs.css";
 
 
 const Landingpage = (props) => {
@@ -23,12 +24,38 @@ const Landingpage = (props) => {
         fetchMovies();
     }, [])
 
+
+    // const [moviesbycategory, setMoviesByCategory] = useState([]);
+    // // const [isLoading, setIsLoading] = useState(true);
+
+    // useEffect(() => {
+    //     const fetchMoviesByCategory = async () => {
+    //         const resullt = await axios(`https://rewind-test.herokuapp.com/movies`)
+    //         console.log(resullt.data.message);
+
+    //         setMovies(resullt.data.message);
+    //         // setIsLoading(false);
+    //     }
+    //     fetchMoviesByCategory();
+    // }, [])
+
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
         
     };
+
+    const [slider, setSlider] = useState(0)
+    const handleSlider = (selectedSlider, e) => {
+        setSlider(selectedSlider);
+    }
+
+    const [selected, setSelected] = useState("Home");
+
+    useEffect((tab) => {
+        setSelected(tab);
+    },[])
 
     return (
         <>
@@ -79,7 +106,35 @@ const Landingpage = (props) => {
                 />
                 {/* <MovieModal movies={movies}/> */}
             </section>
-            
+            <section>
+                <TabNav tabs={['Home', 'Settings', 'Profile']} selected={selected} setSelected={setSelected}>
+                    <Tab isSelected={selected === 'Home'}>
+                        <p>dhdhdhdhdh</p>
+                    </Tab>
+                    <Tab isSelected={selected === 'Settings'}>
+                        <p>sdjdnccudjcdcd</p>                        
+                    </Tab>
+                    <Tab isSelected={selected === 'Profile'}>
+                        <p>ddcodcodcdocdoc</p>
+                    </Tab>
+                </TabNav>
+            </section>     
+            <section>
+            <Carousel activeIndex={slider} onSelect={handleSlider}>
+                    
+                    {movies.map(movie => (
+                        
+                        <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={movie.coverpics_url}
+                            alt="Third slide"
+                        />
+                    </Carousel.Item>
+                    ))}
+                    
+                </Carousel>
+            </section>       
             <Footer/>
         </>
     )

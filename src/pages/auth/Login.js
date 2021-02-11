@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import App from '../../App';
 import { Google, Facebook, Or, Twitter, Logo } from "../../assets";
 import "./Login.css";
 import {Link, useHistory} from "react-router-dom";

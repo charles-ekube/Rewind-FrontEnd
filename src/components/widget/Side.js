@@ -5,6 +5,9 @@ import { RiUploadCloudFill } from "react-icons/ri";
 import { BiListUl } from "react-icons/bi";
 import { RiSettings3Line } from "react-icons/ri";
 import { FiHelpCircle } from "react-icons/fi";
+import {Link} from "react-router-dom";
+
+
 
 function Side() {
   useEffect(() => {
@@ -57,9 +60,13 @@ function Side() {
           <MdHome />
           <h5 className="icon-text ml-2">Overview</h5>
         </div>
-        <div className="prac-save-icon d-flex">
+        <div className="prac-save-icon d-flex white-text">
           <RiUploadCloudFill />
-          {/* <h5 className="icon-text ml-2">Overview1</h5> */}
+          <h5 className="icon-text ml-2 white-text">
+            <Link to="/Upload">
+              Upload
+            </Link>
+            </h5>
         </div>
         <div className="prac-list-icon d-flex">
           <BiListUl />

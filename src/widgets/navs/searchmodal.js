@@ -18,7 +18,7 @@ const SearchModal = ({ showSearchBar, setShowSearchBar }) => {
         e.preventDefault();
         // console.log("ec det weor,l")
         // const query = "Karashika";
-        const url = `https://rewind-test.herokuapp.com/movies/search/movie?title=${query}`;
+        const url = `https://rewind-test.herokuapp.com/movies/search?q=${query}`;
         
         try {
             

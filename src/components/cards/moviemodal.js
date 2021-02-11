@@ -1,8 +1,8 @@
 import React from "react";
 import "./cards.css";
 import { AiOutlineClose } from "react-icons/ai";
-import { SnapBg, Ssnap, Fsnap, Tsnap } from "../../assets";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { Playicon } from '../../assets'
 
 const MovieModal = ({movieModal, setMovieModal, movies, selectedMovie}) => {
     
@@ -15,54 +15,58 @@ const MovieModal = ({movieModal, setMovieModal, movies, selectedMovie}) => {
                 <div className="movie-modal-box" movieModal={movieModal}>
                     
                         <img src={selectedMovie.coverpics_url} alt='poster'/>
-                        
+                        <span className="play-btn-overlay">
+                            <img 
+                            src={Playicon} 
+                            alt="playbtn"
+                            onClick={(props) => history.push({
+                            pathname: `/movie/play/${selectedMovie.title.split(" ").join("_")}`,
+                            state: { movie : `${selectedMovie.movie_url}`,
+                                     description : `${selectedMovie.description}`,
+                                     thumbnail : `${selectedMovie.coverpics_url}`    
+                            } })}
+                            />
+                        </span>
                         <section className="movie-description">
-                            <aside className="movies-description-content">
-                                <h4>{selectedMovie.title}</h4>
-                                <ul>
-                                    <li>{selectedMovie.release_date}</li>
-                                    <li id='pg'>PG-13</li>
-                                    <li>1hr 3min</li>
-                                </ul>
-                                <article>
-                                    {selectedMovie.description}
-                                {/* Seventeen-year-old Rose hails from an aristocratic 
-                                family and is set to be married. 
-                                When she boards the Titanic, she meets Jack Dawson,
-                                 an artist, and falls in love with him. */}
-                                </article>
-                            </aside>
-                            <aside className="movies-description-details">
-                                <button onClick={(props) => history.push({
-                                pathname: `/movie/play/${selectedMovie.title.split(" ").join("_")}`,
-                                state: { movie : `${selectedMovie.movie_url}`}
-                                        //   ${movie.cast}, ${movie.description}` }
-                            })
-                            } >
-                                    <span></span>
-                                    Play
-                                </button>
-                                <div className="cast">
-                                    <span>Cast:</span>
+                            <div className="movies-description-content">
+                            <ul>
+                                <li>
+                                    <h4>
+                                    {selectedMovie.title}
+                                    </h4>
+                                </li>
+                                <li className="date-time">
                                     <ul>
-                                        {/* {selectedMovie.cast} */}
-                                        <li>Macaulay Culkin,</li>
-                                        <li>Joe Pesci,</li>
-                                        <li>Daniel Isky,</li>
-                                        <li>John King,</li>
-                                        <li>Roberts Us</li>
+                                        <li>
+                                            {selectedMovie.release_date}
+                                        </li>
+                                        <li>
+                                            PG - 13
+                                        </li>
+                                        <li>
+                                            1hr 43mins
+                                        </li>
                                     </ul>
-                                </div>
-                                {/* <div className="genre">
-                                    <span>Genre: </span>
-                                    {/* <ul>
-                                        <li> Comedy,</li>
-                                        <li>Adventure,</li>
-                                        <li>Childrens film</li>
-                                    </ul> */}
-                                {/* </div> */}
-                                 
-                            </aside>
+                                </li>
+                                <li className="like-add">
+                                    <ul>
+                                        <li>f</li>
+                                        <li>f</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            </div>
+                            <div className="genre">
+                                <ul>
+                                    <li>
+                                        Genre:
+                                    </li>
+                                </ul>
+                            </div>
+                            <article>
+                                    {selectedMovie.description}        
+                            </article>
+                                                  
                         </section>
                     <button aria-label='Close modal' onClick={() => setMovieModal(prev => !prev)} id='cd-btn'><AiOutlineClose/></button>
                 </div>

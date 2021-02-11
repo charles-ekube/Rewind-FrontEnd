@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom'
+import React, { useState } from 'react';
 import "./cards.css";
 import { MovieModal } from "../../components";
 import { Playicon } from "../../assets"
@@ -10,9 +9,6 @@ import { CgSpinnerTwo } from 'react-icons/cg';
 const Card = ({ movies, isLoading }, props) => {
     AOS.init();
 
-    // useEffect(() => {
-    //     console.log(movies)
-    // }, [])
 
     const [movieModal, setMovieModal] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -23,7 +19,6 @@ const Card = ({ movies, isLoading }, props) => {
         
     }
 
-    // const history = useHistory();
 
 
     return  isLoading ? <h1 className="spinner animate__rotateIn"><CgSpinnerTwo/></h1> : <main
