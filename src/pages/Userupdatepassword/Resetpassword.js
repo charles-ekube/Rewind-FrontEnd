@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Logo from "./images/Rewind-logo.svg";
+import { Logo } from "../../assets";
 import "./Resetpassword.css";
 
 const Resetpassword = () => {
