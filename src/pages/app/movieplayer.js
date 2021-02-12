@@ -42,7 +42,16 @@ const Movieplayer = (props) => {
                     playnow abeg
                 </video>
                 <div className="control-ft">
-                    {state?.description}
+                    <ul style={{display: 'flex', flex-direction: 'column'}}>
+                        <li style={{height:'200px', width: '200px'}}>
+                            {state?.thumbnail}                       
+                        </li>
+                        <li>{state?.category}</li>
+                        <li>{state?.cast}</li>
+                    </ul>            
+        {state?.description}
+                    
+                        
                 </div>
             </section>
           
