@@ -119,41 +119,37 @@ const Upload = () => {
                     <Navbar />
                     <main className="prac-main">
                         <section className="container-fluid prac-main-container">
-                        <form>
+                        <form className="upload-form">
+                        <div><h4 className="header-title">Upload</h4></div>
+                        <p className="upload-form-title"><b>Enter the movie details below</b></p>
+            <div  className="upload-row">
+                <div className="upload-column">
                 <input 
                 type="text" 
+                className="uploadform-inputs"
                 name="title" 
-                placeholder="movie title"
+                placeholder="Enter movie title"
                 onChange={(e) => setTitle(e.target.value)}
                 />
                 <input 
-                type="file" 
-                name="coverpics_url" 
-                placeholder="cover image"
-                onChange={(e) => setCoverpics_url(e.target.files[0])}
-                />
-                <input 
-                type="file" 
-                name="movie_url" 
-                placeholder="movie"
-                onChange={(e) => setMovie_url(e.target.files[0])}
-                />
-                <input 
-                type="text" 
+                type="text"
+                className="uploadform-inputs" 
                 name="description" 
-                placeholder="movie description"
+                placeholder="Enter a description of the movie"
                 onChange={(e) => setDescription(e.target.value)}
                 />
                 <input 
                 type="text" 
+                className="uploadform-inputs"
                 name="cast" 
-                placeholder="movie cast"
+                placeholder="Enter names of cast members and separate with comma"
                 onChange={(e) => setCast(e.target.value)}
                 />
                 <input 
                 type="number" 
+                className="uploadform-inputs"
                 name="release_date" 
-                placeholder="movie year"
+                placeholder="Enter movie year"
                 onChange={(e) => setRelease_date(e.target.value)}
                 />
                 {/* <input 
@@ -162,7 +158,8 @@ const Upload = () => {
                 placeholder="movie cast"
                 onChange={(e) => setCategory(e.target.value)}
                 /> */}
-                <select 
+                <select
+                    id="selectCategory" 
                     name="category"
                     onChange={(e) => setCategory(e.target.value)}
                     // value={genre.title}
@@ -177,7 +174,27 @@ const Upload = () => {
                         </option>
                     ))}
                 </select>
-                <button onClick={handleUpload}>Upload</button>
+                </div>
+                <div className="upload-column">
+                <input 
+                type="file" 
+                className="customUpload1"
+                name="coverpics_url" 
+                placeholder="cover image"
+                onChange={(e) => setCoverpics_url(e.target.files[0])}
+                />
+                <input 
+                type="file"
+                className="customUpload1" 
+                name="movie_url" 
+                placeholder="movie"
+                onChange={(e) => setMovie_url(e.target.files[0])}
+                />
+                </div>
+                </div>
+                        <div className="Uploadbtn-container">
+                <button className="uploadbtn" onClick={handleUpload}>Upload</button>
+                </div>
             </form>
                                 
                         </section>
