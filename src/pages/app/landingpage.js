@@ -37,7 +37,7 @@ const Landingpage = (props) => {
                     <div className="overlay-content">
                         <h2>Relive Your Childhood</h2>
                         <h4>Through Movies</h4>
-                        <h6>Stream 15 minutes of movie content for free</h6>
+                     
                         <button><Link to="/SignUp" style={{color : '#FFF'}}>Get Started</Link></button>
                     </div>
                 </div>
