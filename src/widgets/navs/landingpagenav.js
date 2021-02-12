@@ -45,9 +45,9 @@ const Landingpagenav = () => {
           />
         </li>
         <li className="mobile-nav-item">
-          <Link>
+          <Link to="/"  style={{color : '#FFF'}}>
             Home
-                </Link>
+          </Link>
         </li>
         <li className="mobile-nav-item">
           Categories
