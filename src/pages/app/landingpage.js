@@ -10,40 +10,11 @@ import "../../components/tabs/tabs.css";
 
 const Landingpage = (props) => {
 
-    // const [movies, setMovies] = useState([]);
-    // const [isLoading, setIsLoading] = useState(true);
-
-    // useEffect(() => {
-    //     const fetchMovies = async () => {
-    //         const result = await axios(`https://rewind-test.herokuapp.com/movies`)
-    //         console.log(result.data.message);
-
-    //         setMovies(result.data.message);
-    //         setIsLoading(false);
-    //     }
-    //     fetchMovies();
-    // }, [])
-
-
-    // const [moviesbycategory, setMoviesByCategory] = useState([]);
-    // // const [isLoading, setIsLoading] = useState(true);
-
-    // useEffect(() => {
-    //     const fetchMoviesByCategory = async () => {
-    //         const resullt = await axios(`https://rewind-test.herokuapp.com/movies`)
-    //         console.log(resullt.data.message);
-
-    //         setMovies(resullt.data.message);
-    //         // setIsLoading(false);
-    //     }
-    //     fetchMoviesByCategory();
-    // }, [])
-
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
-        
+
     };
 
     const [slider, setSlider] = useState(0)
@@ -55,7 +26,7 @@ const Landingpage = (props) => {
 
     useEffect((tab) => {
         setSelected(tab);
-    },[])
+    }, [])
 
     return (
         <>
@@ -96,28 +67,49 @@ const Landingpage = (props) => {
             </section>
 
             <section className="featured-movies">
-                <CarouselPage/>
+                <CarouselPage />
             </section>
             <section className="recent-uploads">
-                <RecentUpload/>
+                <RecentUpload />
             </section>
             <section>
-                <TabNav tabs={['Adventure', 'Comedy', 'Horror', 'Action']} selected={selected} setSelected={setSelected}>
+                <TabNav tabs={['Adventure', 'Comedy', 'Horror', 'Action', 'Romance', 'Drama', 'Sci-fi', 'Mystery', 'Animation', 'Nigerian', 'Others']} selected={selected} setSelected={setSelected}>
                     <Tab isSelected={selected === 'Adventure'}>
-                        <TabsCard/>
+                        <TabsCard />
                     </Tab>
                     <Tab isSelected={selected === 'Comedy'}>
-                        <p>sdjdnccudjcdcd</p>                        
+                        <p>sdjdnccudjcdcd</p>
                     </Tab>
                     <Tab isSelected={selected === 'Horror'}>
                         <p>ddcodcodcdocdoc</p>
                     </Tab>
                     <Tab isSelected={selected === 'Action'}>
-                        <TabsActionCard/>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Romance'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Drama'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Sci-fi'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Mystery'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Animation'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Nigerian'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Others'}>
+                        <TabsActionCard />
                     </Tab>
                 </TabNav>
-            </section>     
-            <Footer/>
+            </section>
+            <Footer />
         </>
     )
 }

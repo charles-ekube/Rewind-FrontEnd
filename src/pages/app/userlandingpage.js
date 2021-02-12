@@ -1,43 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import { Card } from "../../components";
-import { Userlandingpagenav, Footer } from "../../widgets"
+import { TabsCard, TabsActionCard, TabNav, Tab, CarouselPage, RecentUpload } from "../../components";
+import { Footer, Landingpagenav } from "../../widgets"
 import { Carousel } from "react-bootstrap";
-import {Movieplayer} from "../../pages";
 import { HomeAlone, GodFather, SoundofMusic } from "../../assets";
 import "./app.css";
-const Userlandingpage = () => {
+import "../../components/tabs/tabs.css";
 
-    const [movies, setMovies] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchMovies = async () => {
-            const result = await axios(`https://rewind-test.herokuapp.com/movies`)
-            console.log(result.data.message);
-
-            setMovies(result.data.message);
-            setIsLoading(false);
-        }
-        fetchMovies();
-    }, [])
+const Userlandingpage = (props) => {
 
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
-        
+
     };
 
+    const [slider, setSlider] = useState(0)
+    const handleSlider = (selectedSlider, e) => {
+        setSlider(selectedSlider);
+    }
+
+    const [selected, setSelected] = useState("Home");
+
+    useEffect((tab) => {
+        setSelected(tab);
+    }, [])
 
     return (
         <>
-            <Userlandingpagenav />
+            <Landingpagenav />
 
             <section className="intro-section">
                 <div className="overlay">
                     <div className="overlay-content">
-                        <h1>Relive Your Childhood</h1>
+                        <h2>Relive Your Childhood</h2>
                         <h4>Through Movies</h4>
                         <h6>Stream 15 minutes of movie content for free</h6>
                         <button>Get Started</button>
@@ -46,7 +44,7 @@ const Userlandingpage = () => {
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                     <Carousel.Item>
                         <img
-                            className="d-block w-100 h-500"
+                            className="d-block"
                             src={HomeAlone}
                             alt="First slide"
                         />
@@ -67,17 +65,51 @@ const Userlandingpage = () => {
                     </Carousel.Item>
                 </Carousel>
             </section>
-            <section>
-                <Card 
-                isLoading={isLoading} 
-                movies={movies} 
-                // toggleMovieModal={toggleMovieModal}  
-                // setMovieModal={setMovieModal}
-                // movieModal={movieModal}
-                />
-                <Movieplayer movies={movies}/>
+
+            <section className="featured-movies">
+                <CarouselPage />
             </section>
-            <Footer/>
+            <section className="recent-uploads">
+                <RecentUpload />
+            </section>
+            <section>
+                <TabNav tabs={['Adventure', 'Comedy', 'Horror', 'Action', 'Romance', 'Drama', 'Sci-fi', 'Mystery', 'Animation', 'Nigerian', 'Others']} selected={selected} setSelected={setSelected}>
+                    <Tab isSelected={selected === 'Adventure'}>
+                        <TabsCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Comedy'}>
+                        <p>sdjdnccudjcdcd</p>
+                    </Tab>
+                    <Tab isSelected={selected === 'Horror'}>
+                        <p>ddcodcodcdocdoc</p>
+                    </Tab>
+                    <Tab isSelected={selected === 'Action'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Romance'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Drama'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Sci-fi'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Mystery'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Animation'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Nigerian'}>
+                        <TabsActionCard />
+                    </Tab>
+                    <Tab isSelected={selected === 'Others'}>
+                        <TabsActionCard />
+                    </Tab>
+                </TabNav>
+            </section>
+            <Footer />
         </>
     )
 }

@@ -52,6 +52,13 @@ const Login = () => {
   const history =useHistory();
   if (user) {
     console.log(user);
+    swal({
+      title: "Success!",
+      text: "Redirecting......",
+      type: "success",
+      timer: 2000,
+      showConfirmButton: false
+    });
     // return <LandingPage user={user.props} handleLogout={handleLogout}/> ;
    history.push("/Userlandingpage");
   }

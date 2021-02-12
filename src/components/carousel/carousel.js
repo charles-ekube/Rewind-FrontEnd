@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { CgSpinnerTwo } from 'react-icons/cg';
 import axios from "axios"
 import "./carousel.css";
+import { MovieModal } from "../../components";
 
 
 const CarouselPage = () => {
@@ -21,6 +22,15 @@ useEffect(() => {
     fetchMovies();
 }, [])
 
+const [movieModal, setMovieModal] = useState(false);
+const [selectedMovie, setSelectedMovie] = useState(null);
+
+const toggleMovieModal = (e, movie) => {
+    setMovieModal(prev => !prev);
+    setSelectedMovie(movie);
+    
+}
+
 
 
     return  isLoading ? <h1 className="spinner"><CgSpinnerTwo/></h1> : <main>
@@ -32,6 +42,9 @@ useEffect(() => {
                 {movies.map(movie => (
                     <div key={movie._id} className="slider-content-container">
                         <img src={movie.coverpics_url} alt="coverpic"/>
+                        <span className="movie-poster-overlay">
+                        <button onClick={(e) => toggleMovieModal(e, movie)}>click me</button>
+                        </span>
                         <div className="carousel-movie-details-container">
                             <h5>
                                 {movie.title}
@@ -44,6 +57,8 @@ useEffect(() => {
                         </div>
                     </div>
                 ))}
+                <MovieModal movieModal={movieModal} selectedMovie={selectedMovie}  setMovieModal={setMovieModal} />
+
          </section>
     </section> 
         </main>
@@ -70,6 +85,15 @@ useEffect(() => {
     fetchMovies();
 }, [])
 
+const [movieModal, setMovieModal] = useState(false);
+const [selectedMovie, setSelectedMovie] = useState(null);
+
+const toggleMovieModal = (e, movie) => {
+    setMovieModal(prev => !prev);
+    setSelectedMovie(movie);
+    
+}
+
 
     return  isLoading ? <h1 className="spinner"><CgSpinnerTwo/></h1> : <main>
         <section className="slider">
@@ -80,6 +104,9 @@ useEffect(() => {
                 {movies.map(movie => (
                     <div key={movie._id} className="recent-upload-content-container">
                         <img src={movie.coverpics_url} alt="coverpic"/>
+                        <span className="movie-poster-overlay">
+                        <button onClick={(e) => toggleMovieModal(e, movie)}>click me</button>
+                        </span>
                         <div className="recent-movie-details-container">
                             <h5>
                                 {movie.title}
@@ -92,6 +119,7 @@ useEffect(() => {
                         </div>
                     </div>
                 ))}
+            <MovieModal movieModal={movieModal} selectedMovie={selectedMovie}  setMovieModal={setMovieModal} />
          </section>
     </section> 
         </main>

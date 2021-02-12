@@ -4,6 +4,7 @@ import { Google, Facebook, Or, Twitter, Logo } from "../../assets";
 import "./Sign_up.css";
 import { Link } from "react-router-dom";
 import axios from "axios"
+import swal from "sweetalert";
 
 const SignUp = () => {
 
@@ -21,20 +22,23 @@ const SignUp = () => {
       console.log(d);
       if (d.status === 201) {
 
-        // swal({
-        //   title: "Successfully Registered",
-        //   text: "Redirecting........",
-        //   type: "success"
-        // })
-        alert('done');
+        swal({
+          title: "Success!",
+          text: "Check your mailbox for a verification image to verify your account",
+          type: "success",
+          timer: 2000,
+          showConfirmButton: false
+        }, function () {
+          window.location.href = "/Login";
+        });
+
       }
 
     }).catch(err => alert(err));
-    // console.log(data);
+
   }
   const validatePassword = async (value) => {
-    // await sleep(500)
-    // let errmsg = '';
+
     if (value.length < 6) {
       return false
     }
@@ -66,13 +70,13 @@ const SignUp = () => {
         <section className="d-flex justify-content-center">
           <form className="mt-5 px-5 py-4 mb-5" onSubmit={handleSubmit(onSubmit)}>
             <img className="d-flex mx-auto" src={Logo} alt="" />
-            <h1 className="login-header ml-4">Sign Up</h1>
-            <p className="ml-4 sign-up-text">Sign up to get an account</p>
+            <h1 className="login-header ">Sign Up</h1>
+            <h6 className=" sign-up-text">Sign up to get an account</h6>
 
             <div>
               <label className="login-label mt-3">Email address</label>
               <input
-                className="mb-3 login-input"
+                className=" login-input"
                 name="email"
                 type="email"
                 placeholder="Enter your email address"
@@ -85,39 +89,39 @@ const SignUp = () => {
             </div>
             <div>
 
-            <label className="login-label">Password</label>
-            <input
-              className="mb-4 login-input"
-              name="password"
-              type="text"
-              ref={register({ required : true, validate : validatePassword})}  
-              placeholder="Enter your password"
-            />
-             {errors.password && errors.password.type === "required" && (
-                            <small className="error">This field is required</small>
-                         )}
-                        {errors.password &&  errors.password.type === "validate" && (
-                            <small className="error">Password must have at least 6 characters</small>
-                        )} 
+              <label className="login-label">Password</label>
+              <input
+                className=" login-input"
+                name="password"
+                type="text"
+                ref={register({ required: true, validate: validatePassword })}
+                placeholder="Enter your password"
+              />
+              {errors.password && errors.password.type === "required" && (
+                <small className="error">This field is required</small>
+              )}
+              {errors.password && errors.password.type === "validate" && (
+                <small className="error">Password must have at least 6 characters</small>
+              )}
             </div>
             <div>
-            <label className="login-label">Confirm Password</label>
-            <input
-              className="mb-4 login-input"
-              name="confirmPassword"
-              type="text"
-              ref={register({ required : true, validate : validateConfirmPassword})}
-              placeholder="Confirm password"
-            />
-               {errors.confirmPassword && errors.confirmPassword.type === "required" && (
-                            <small className="error">This field is required</small>
-                         )}
-                        {errors.confirmPassword &&  errors.confirmPassword.type === "validate" && (
-                            <small className="error">Password does not match</small>
-                        )}
-          </div>
+              <label className="login-label">Confirm Password</label>
+              <input
+                className=" login-input"
+                name="confirmPassword"
+                type="text"
+                ref={register({ required: true, validate: validateConfirmPassword })}
+                placeholder="Confirm password"
+              />
+              {errors.confirmPassword && errors.confirmPassword.type === "required" && (
+                <small className="error">This field is required</small>
+              )}
+              {errors.confirmPassword && errors.confirmPassword.type === "validate" && (
+                <small className="error">Password does not match</small>
+              )}
+            </div>
             <button
-              className="d-block login-button "
+              className="d-block login-button text-"
               type="submit"
               value="Submit"
             >
