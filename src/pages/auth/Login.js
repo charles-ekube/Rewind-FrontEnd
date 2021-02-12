@@ -3,7 +3,9 @@ import { Google, Facebook, Or, Twitter, Logo } from "../../assets";
 import "./Login.css";
 import {Link, useHistory} from "react-router-dom";
 import axios from 'axios';
-import {ProtectedRoutes} from '../../pages' 
+import {ProtectedRoutes} from '../../pages' ;
+import swal from "sweetalert";
+
 
 const Login = () => {
   // const { register, handleSubmit } = useForm();
@@ -54,7 +56,7 @@ const Login = () => {
     console.log(user);
     swal({
       title: "Success!",
-      text: "Redirecting......",
+      text: "Login Successful",
       type: "success",
       timer: 2000,
       showConfirmButton: false

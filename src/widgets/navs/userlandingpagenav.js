@@ -7,7 +7,7 @@ import { FaSearch } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { SearchModal } from "../../widgets";
 import { Link } from "react-router-dom";
- 
+
 
 
 const Userlandingpagenav = () => {
@@ -22,6 +22,57 @@ const Userlandingpagenav = () => {
   }
 
 
+  const [showMenu, setShowMenu] = useState(false);
+  let menu
+  let menuMask
+
+  if (showMenu) {
+    menu = <aside
+      className="mobile-nav-menu"
+      data-aos="fade-right"
+      data-aos-offset="500"
+      data-aos-easing="ease-in-sine"
+    >
+      <a href="/">
+        <img src={RewindLogo} alt="RewindLogo" />
+      </a>
+      <ul className="mobile-nav-list">
+        <li className="mobile-nav-item">
+          <FaSearch onClick={SearchBar} />
+          <SearchModal
+            showSearchBar={showSearchBar}
+            setShowSearchBar={setShowSearchBar}
+          />
+        </li>
+        <li className="mobile-nav-item">
+          <Link>
+            Home
+                </Link>
+        </li>
+        <li className="mobile-nav-item">
+          Categories
+              </li>
+        <li className="mobile-nav-item">
+          Support
+              </li>
+        <li className="mobile-nav-item">
+          <Link to="/Login" className="signin-btn">
+            Sign In
+                  </Link>
+        </li>
+        <li className="mobile-nav-item ">
+          <Link to="/SignUp" id="signup-btn">
+            Sign Up
+                 </Link>
+        </li>
+      </ul>
+
+    </aside>
+
+    menuMask = <aside
+      className="mobile-menu-mask"
+      onClick={() => setShowMenu(false)}></aside>
+  }
   return (
     <>
 
@@ -33,43 +84,44 @@ const Userlandingpagenav = () => {
           <section className="nav-list-container">
             <ul className="nav-list">
               <li className="nav-item">
-                <FaSearch onClick={SearchBar} />
+                <FaSearch onClick={SearchBar} className="search-open-btn" />
                 <SearchModal
                   showSearchBar={showSearchBar}
                   setShowSearchBar={setShowSearchBar}
                 />
               </li>
               <li className="nav-item">
-                {/* <Link>
-                        Home
-                        </Link> */}
-                        Home
-                      </li>
-              <li className="nav-item">
-                All Movies
+                <Link>
+                  Home
+                </Link>
               </li>
               <li className="nav-item">
                 Categories
               </li>
               <li className="nav-item">
-                  <Link to="/Login" className="signin-btn"> 
-                    Username
+                Support
+              </li>
+              <li className="nav-item">
+                <Link to="/Login" className="signin-btn">
+                  Sign In
                   </Link>
               </li>
               <li className="nav-item ">
-                 <Link to="/" id="signup-btn">
-                    Logout
-                 </Link>
+                <Link to="/SignUp" id="signup-btn">
+
+                </Link>
               </li>
             </ul>
 
             <span className="mobile-nav-btn">
-              <FiMenu />
+              <FiMenu onClick={() => setShowMenu(!showMenu)} />
             </span>
           </section>
 
         </nav>
       </header>
+      {menu}
+      {menuMask}
     </>
   )
 }
