@@ -93,8 +93,8 @@ padding: 15px 0 16px 0;
 }
 
 .movie-modal-box {
-    width: 525px;
-    height: 514px;
+    width: 400px;
+    height: 500px;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     position: relative;
     top: 0;
