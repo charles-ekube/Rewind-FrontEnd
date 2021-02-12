@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { useForm } from "react-hook-form";
+
 import './Upload.css';
 import axios from "axios";
 import { Navbar, Side } from "../../components";
