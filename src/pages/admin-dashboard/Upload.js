@@ -119,42 +119,57 @@ const Upload = () => {
                     <Navbar />
                     <main className="prac-main">
                         <section className="container-fluid prac-main-container">
-                        <form>
+                        <form className="upload-form">
+                        <div><h4 className="header-title">Upload</h4></div>
+                        <p className="upload-form-title"><b>Enter the movie details below</b></p>
+            <div  className="upload-row">
+                <div className="upload-column">
+                <label for="title">Title</label>
                 <input 
                 type="text" 
+                className="uploadform-inputs"
                 name="title" 
-                placeholder="movie title"
+                placeholder="Enter movie title"
                 onChange={(e) => setTitle(e.target.value)}
                 />
-                <input 
-                type="file" 
-                name="coverpics_url" 
-                placeholder="cover image"
-                onChange={(e) => setCoverpics_url(e.target.files[0])}
-                />
-                <input 
-                type="file" 
-                name="movie_url" 
-                placeholder="movie"
-                onChange={(e) => setMovie_url(e.target.files[0])}
-                />
-                <input 
-                type="text" 
-                name="description" 
-                placeholder="movie description"
-                onChange={(e) => setDescription(e.target.value)}
-                />
-                <input 
-                type="text" 
-                name="cast" 
-                placeholder="movie cast"
-                onChange={(e) => setCast(e.target.value)}
-                />
+                 <label for="year">Year</label>
                 <input 
                 type="number" 
+                className="uploadform-inputs"
                 name="release_date" 
-                placeholder="movie year"
+                placeholder="Enter movie year"
                 onChange={(e) => setRelease_date(e.target.value)}
+                />
+                <label for="category">Genre</label>
+                <select
+                    id="selectCategory" 
+                    name="category"
+                    onChange={(e) => setCategory(e.target.value)}
+                    // value={genre.title}
+                >
+                    {genres.map(genre => (
+                        <option key={genre._id} 
+                        name="category" 
+                        >
+                            {genre.title}
+                        </option>
+                    ))}
+                </select>
+               <label for="cast">Cast</label>
+                <input 
+                type="text" 
+                className="uploadform-inputs"
+                name="cast" 
+                placeholder="Enter names of cast members and separate with comma"
+                onChange={(e) => setCast(e.target.value)}
+                />
+                 <label for="description">Description</label>
+                <input 
+                type="text"
+                className="uploadform-inputs" 
+                name="description" 
+                placeholder="Enter a description of the movie"
+                onChange={(e) => setDescription(e.target.value)}
                 />
                 {/* <input 
                 type="text" 
@@ -162,22 +177,32 @@ const Upload = () => {
                 placeholder="movie cast"
                 onChange={(e) => setCategory(e.target.value)}
                 /> */}
-                <select 
-                    name="category"
-                    onChange={(e) => setCategory(e.target.value)}
-                    // value={genre.title}
-                >
-                    {genres.map(genre => (
-                        <option key={genre._id} 
-                        name="category"
-                        
-                        
-                        >
-                            {genre.title}
-                        </option>
-                    ))}
-                </select>
-                <button onClick={handleUpload}>Upload</button>
+                </div>
+                <div className="upload-column">
+                <label className="customUpload">
+                Choose Cover Image<br></br><br></br>
+                <input 
+                type="file" 
+                name="coverpics_url" 
+                placeholder="Choose Cover Image"
+                onChange={(e) => setCoverpics_url(e.target.files[0])}
+                />
+                </label>
+                <label className="customUpload">
+                Choose Movie<br></br><br></br>
+                <input 
+                type="file"
+                
+                name="movie_url" 
+                placeholder="Choose Movie"
+                onChange={(e) => setMovie_url(e.target.files[0])}
+                />
+                </label>
+                </div>
+                </div>
+                        <div className="Uploadbtn-container">
+                <button className="uploadbtn" onClick={handleUpload}>Upload</button>
+                </div>
             </form>
                                 
                         </section>

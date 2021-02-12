@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./cards.css";
 import { MovieModal } from "../../components";
 import { Playicon } from "../../assets"
 import AOS from "aos";
 import 'aos/dist/aos.css'
 import { CgSpinnerTwo } from 'react-icons/cg';
+import axios from "axios";
 
-const Card = ({ movies, isLoading }, props) => {
+const Card = (props) => {
     AOS.init();
 
 
@@ -18,6 +19,20 @@ const Card = ({ movies, isLoading }, props) => {
         setSelectedMovie(movie);
         
     }
+
+    const [movies, setMovies] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchMovies = async () => {
+            const result = await axios(`https://rewind-test.herokuapp.com/movies/featured-movies`)
+            console.log(result.data.message);
+
+            setMovies(result.data.message);
+            setIsLoading(false);
+        }
+        fetchMovies();
+    }, [])
 
 
 

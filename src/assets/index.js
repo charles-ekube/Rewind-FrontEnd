@@ -1,13 +1,3 @@
-  // import Frame from "./images/lights.gif";
-// import Action from "./images/action.png";
-// import Comedy from "./images/comedy.png";
-// import Horror from "./images/horror.png";
-// import Romance from "./images/romance.png";
-// import Adventure from "./images/adventure.png";
-// // import countDown from "./images/countdown.gif";
-// import Avatar from "./images/avatar.png";
-// import Line from "./images/line.png";
-// import Logo from "./images/Rewind-logo.svg";
 
 import Backtothefuture from "../assets/images/backtothefuture.png";
 import Godfather from "../assets/images/godfather.png";
