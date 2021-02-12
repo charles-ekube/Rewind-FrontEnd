@@ -65,9 +65,18 @@ label {
     font-size: 1.1rem;
 }
 
-input[type="file"] {
+.file-upload::-webkit-file-upload-button {
+    color: #1c1c1c;
     display: inline-block;
-}
+    background: #1c1c1c;
+    border: none;
+    padding: 7px 15px;
+    font-weight: 700;
+    border-radius: 3px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 10pt;
+  }
 
 .uploadform-inputs{
     font-size: 14px;

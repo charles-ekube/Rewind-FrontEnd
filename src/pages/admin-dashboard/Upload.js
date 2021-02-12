@@ -184,6 +184,7 @@ const Upload = () => {
                 <input 
                 type="file" 
                 name="coverpics_url" 
+                className="file-upload"
                 placeholder="Choose Cover Image"
                 onChange={(e) => setCoverpics_url(e.target.files[0])}
                 />
@@ -192,8 +193,8 @@ const Upload = () => {
                 Choose Movie<br></br><br></br>
                 <input 
                 type="file"
-                
-                name="movie_url" 
+                name="movie_url"
+                className="file-upload" 
                 placeholder="Choose Movie"
                 onChange={(e) => setMovie_url(e.target.files[0])}
                 />
