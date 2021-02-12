@@ -3,6 +3,7 @@ import { TabsCard, TabsActionCard, TabNav, Tab, CarouselPage, RecentUpload, AllM
 import { Footer, Landingpagenav } from "../../widgets";
 import { Carousel } from "react-bootstrap";
 import { HomeAlone, GodFather, SoundofMusic } from "../../assets";
+import {Link} from "react-router-dom";
 import "./app.css";
 import "../../components/tabs/tabs.css";
 
@@ -37,7 +38,7 @@ const Landingpage = (props) => {
                         <h2>Relive Your Childhood</h2>
                         <h4>Through Movies</h4>
                         <h6>Stream 15 minutes of movie content for free</h6>
-                        <button>Get Started</button>
+                        <button><Link to="/SignUp">Get Started</Link></button>
                     </div>
                 </div>
                 <Carousel activeIndex={index} onSelect={handleSelect}>
