@@ -23,7 +23,9 @@ const MovieModal = ({movieModal, setMovieModal, movies, selectedMovie}) => {
                             pathname: `/movie/play/${selectedMovie.title.split(" ").join("_")}`,
                             state: { movie : `${selectedMovie.movie_url}`,
                                      description : `${selectedMovie.description}`,
-                                     thumbnail : `${selectedMovie.coverpics_url}`    
+                                     thumbnail : `${selectedMovie.coverpics_url}`,
+                                     span : `${selectedMovie.length}`,
+                                    category : `${selectedMovie.cast}`
                             } })}
                             />
                         </span>
