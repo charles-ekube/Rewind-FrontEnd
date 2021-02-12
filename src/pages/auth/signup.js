@@ -28,8 +28,6 @@ const SignUp = () => {
           type: "success",
           timer: 2000,
           showConfirmButton: false
-        }, function () {
-          window.location.href = "/Login";
         });
 
       }
@@ -70,8 +68,8 @@ const SignUp = () => {
         <section className="d-flex justify-content-center">
           <form className="mt-5 px-5 py-4 mb-5" onSubmit={handleSubmit(onSubmit)}>
             <img className="d-flex mx-auto" src={Logo} alt="" />
-            <h1 className="login-header ">Sign Up</h1>
-            <h6 className=" sign-up-text">Sign up to get an account</h6>
+            <h1 className="login-header ml-4 ">Sign Up</h1>
+            <h6 className=" sign-up-text ml-4">Sign up to get an account</h6>
 
             <div>
               <label className="login-label mt-3">Email address</label>
@@ -93,7 +91,7 @@ const SignUp = () => {
               <input
                 className=" login-input"
                 name="password"
-                type="text"
+                type="password"
                 ref={register({ required: true, validate: validatePassword })}
                 placeholder="Enter your password"
               />
@@ -109,7 +107,7 @@ const SignUp = () => {
               <input
                 className=" login-input"
                 name="confirmPassword"
-                type="text"
+                type="password"
                 ref={register({ required: true, validate: validateConfirmPassword })}
                 placeholder="Confirm password"
               />
@@ -144,7 +142,7 @@ const SignUp = () => {
               </a>
             </div>
 
-            <p className="text-footer mt-3 text-center">
+            <p className="text-footer mt-3 ">
               Have an account?
               <Link to="/Login" className="click" href="click">
                 Click here

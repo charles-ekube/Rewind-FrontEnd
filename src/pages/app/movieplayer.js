@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Landingpagenav } from "../../widgets";
+import { Userlandingpagenav } from "../../widgets";
 import { Card } from "../../components"
 import axios from "axios";
 
@@ -20,7 +20,7 @@ const Movieplayer = (props) => {
 
     useEffect(() => {
         const fetchMovies = async () => {
-            const result = await axios(`https://rewind-test.herokuapp.com/movies`)
+            const result = await axios(`https://rewind-test.herokuapp.com/movies/recently-added`)
             console.log(result.data.message);
 
             setMovies(result.data.message);
@@ -33,7 +33,7 @@ const Movieplayer = (props) => {
 
     return (
         <>
-            <Landingpagenav />
+            <Userlandingpagenav />
             <section className="movie-player-container">
                 <video
                 src={state?.movie}

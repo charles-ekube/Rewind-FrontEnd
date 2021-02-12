@@ -54,16 +54,11 @@ const Userlandingpagenav = () => {
               </li>
         <li className="mobile-nav-item">
           Support
-              </li>
-        <li className="mobile-nav-item">
-          <Link to="/Login" className="signin-btn">
-            Sign In
-                  </Link>
         </li>
         <li className="mobile-nav-item ">
-          <Link to="/SignUp" id="signup-btn">
-            Sign Up
-                 </Link>
+          <Link to="/Landingpage" id="signup-btn">
+            Logout  
+          </Link>
         </li>
       </ul>
 
@@ -78,9 +73,9 @@ const Userlandingpagenav = () => {
 
       <header>
         <nav>
-          <a href="/">
+          <Link to="/Userlandingpage">
             <img src={RewindLogo} alt="RewindLogo" />
-          </a>
+          </Link>
           <section className="nav-list-container">
             <ul className="nav-list">
               <li className="nav-item">
@@ -101,16 +96,11 @@ const Userlandingpagenav = () => {
               <li className="nav-item">
                 Support
               </li>
-              <li className="nav-item">
-                <Link to="/Login" className="signin-btn">
-                  Sign In
-                  </Link>
-              </li>
-              <li className="nav-item ">
-                <Link to="/SignUp" id="signup-btn">
-
-                </Link>
-              </li>
+              <li className="mobile-nav-item ">
+          <Link to="/Landingpage" id="signup-btn">
+            Logout  
+          </Link>
+        </li>
             </ul>
 
             <span className="mobile-nav-btn">

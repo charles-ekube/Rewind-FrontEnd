@@ -40,7 +40,7 @@
   height: 40px;
   border-radius: 4px;
   padding-left:5px;
-  margin: auto;
+  margin: 10px auto;
 }
 
 .sign-up-info label {
@@ -68,7 +68,7 @@
   margin-bottom: 20px;
   box-shadow: 0px 10px 18px #bd220b33, 0px 0px 1px #bd220b4f;
   color: #ffffff;
-  /* margin-left: 15px; */
+  margin: 20px auto;
 }
 
 .click {
@@ -77,12 +77,11 @@
 
 .text-footer {
   color: #ffffff;
+  margin-left: -20px;
 }
 
 .or-tag {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  /* padding-left: 22px; */
+  margin-left: -30px;
 }
 
 small {
