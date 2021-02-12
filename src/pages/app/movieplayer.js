@@ -48,8 +48,9 @@ const Movieplayer = (props) => {
                         </li>
                         <li>{state?.category}</li>
                         <li>{state?.cast}</li>
+                        <li>{state?.description}</li>
                     </ul>            
-        {state?.description}
+        
                     
                         
                 </div>
