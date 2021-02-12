@@ -102,7 +102,7 @@ const Landingpagenav = () => {
                 Support
               </li>
               <li className="nav-item">
-                <Link to="/Login" className="signin-btn">
+                <Link to="/Login" className="signin-btn"  style={{color : '#FFF'}}>
                   Sign In
                   </Link>
               </li>
