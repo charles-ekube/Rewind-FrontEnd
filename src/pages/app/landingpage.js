@@ -38,7 +38,7 @@ const Landingpage = (props) => {
                         <h2>Relive Your Childhood</h2>
                         <h4>Through Movies</h4>
                         <h6>Stream 15 minutes of movie content for free</h6>
-                        <button><Link to="/SignUp">Get Started</Link></button>
+                        <button><Link to="/SignUp" style={{color : '#FFF'}}>Get Started</Link></button>
                     </div>
                 </div>
                 <Carousel activeIndex={index} onSelect={handleSelect}>
