@@ -44,7 +44,8 @@ const Movieplayer = (props) => {
                 <div className="control-ft">
                     <ul style={{color: '#fff'}}>
                         <li style={{height:'200px', width: '200px'}}>
-                            {state?.thumbnail}                       
+                            <img src={state?.thumbnail} alt='poster'/>
+                                                   
                         </li>
                         <li>{state?.category}</li>
                         <li>{state?.cast}</li>
