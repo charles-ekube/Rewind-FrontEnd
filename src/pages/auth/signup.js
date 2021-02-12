@@ -71,12 +71,9 @@ const SignUp = () => {
                 name="email"
                 type="email"
                 placeholder="Enter your email address"
-                ref={register({ required: true, validate: validateEmail })}
+                ref={register({ required: true })}
               />
               {errors.email && <small>This field is required</small>}
-              {errors.email && errors.email.type === "validate" && (
-                <small className="error">Enter valid email</small>
-              )}
             </div>
             <div>
 
