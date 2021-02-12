@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Userlandingpagenav } from "../../widgets";
 import { Card } from "../../components";
-import {RecentUpload} from "../../pages";
 import axios from "axios";
 
 
@@ -46,9 +45,7 @@ const Movieplayer = (props) => {
                     {state?.description}
                 </div>
             </section>
-            <section>
-            <RecentUpload/>
-            </section>
+          
         </>
     )
 }
