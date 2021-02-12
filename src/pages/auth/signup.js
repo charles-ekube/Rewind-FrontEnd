@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
+import {useHistory} from "react-router-dom";
 import { Google, Facebook, Or, Twitter, Logo } from "../../assets";
 import "./Sign_up.css";
 import { Link } from "react-router-dom";
@@ -13,7 +14,7 @@ const SignUp = () => {
   password.current = watch("password", "");
   const emailReg = '/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
   // const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
+const history = useHistory();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -29,6 +30,7 @@ const SignUp = () => {
           timer: 2000,
           showConfirmButton: false
         });
+        history.push("/Login")
 
       }
 
