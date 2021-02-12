@@ -4,7 +4,7 @@ const TabNav = (props) => {
     return (
         <>
           <section>
-            <ul className="nav nav-tabs">
+            <ul className="nav nav-tabs" id="tabnav">
                 {
                     props.tabs.map(tab => {
                         const active = (tab === props.selected ? 'active' : '');
