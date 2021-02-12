@@ -97,7 +97,7 @@ const Userlandingpagenav = () => {
                 Support
               </li>
               <li className="mobile-nav-item ">
-          <Link to="/Landingpage" id="signup-btn">
+          <Link to="/" id="signup-btn">
             Logout  
           </Link>
         </li>
