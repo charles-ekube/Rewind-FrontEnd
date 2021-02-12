@@ -91,7 +91,7 @@ const Landingpagenav = () => {
                 />
               </li>
               <li className="nav-item">
-                <Link>
+                <Link to="/"  style={{color : '#FFF'}}>
                   Home
                 </Link>
               </li>
