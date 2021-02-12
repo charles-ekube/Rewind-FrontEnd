@@ -11,7 +11,7 @@ const SignUp = () => {
   const { register, handleSubmit, errors, watch } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
-  const emailReg = '/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
+  
   // const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 
@@ -53,14 +53,7 @@ const SignUp = () => {
     }
   }
 
-  const validateEmail = async (value) => {
-    if (value.pattern === emailReg) {
-      return false
-    }
-    else {
-      return true
-    }
-  }
+  
 
   return (
     <>
