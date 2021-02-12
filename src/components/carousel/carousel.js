@@ -5,7 +5,6 @@ import "./carousel.css";
 import { MovieModal } from "../../components";
 import AOS from "aos";
 import 'aos/dist/aos.css';
-import {Playicon} from "../../assets";
 import { FiPlay } from "react-icons/fi";
 
 
