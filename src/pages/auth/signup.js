@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Google, Facebook, Or, Twitter, Logo } from "../../assets";
 import "./Sign_up.css";
 import { Link } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 import swal from "sweetalert";
 
 const SignUp = () => {
