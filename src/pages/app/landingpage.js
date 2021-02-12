@@ -9,21 +9,7 @@ import "../../components/tabs/tabs.css";
 
 const Landingpage = (props) => {
 
-    const [index, setIndex] = useState(0);
-
-    const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
-
-    };
-
-    
-
-    const [selected, setSelected] = useState("Home");
-
-    useEffect((tab) => {
-        setSelected(tab);
-    }, [])
-
+  
     return (
         <>
             <Landingpagenav />
