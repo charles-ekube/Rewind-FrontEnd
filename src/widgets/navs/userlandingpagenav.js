@@ -86,7 +86,7 @@ const Userlandingpagenav = () => {
                 />
               </li>
               <li className="nav-item">
-                <Link>
+                <Link to="/Userlandingpage" style={{color : '#FFF'}}>
                   Home
                 </Link>
               </li>
@@ -97,7 +97,7 @@ const Userlandingpagenav = () => {
                 Support
               </li>
               <li className="mobile-nav-item ">
-          <Link to="/" id="signup-btn">
+          <Link to="/" id="signup-btn" >
             Logout  
           </Link>
         </li>
