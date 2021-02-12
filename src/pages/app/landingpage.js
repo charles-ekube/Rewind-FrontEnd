@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import { Card, TabNav, Tab } from "../../components";
+import { TabsCard, TabsActionCard, TabNav, Tab, CarouselPage, RecentUpload } from "../../components";
 import { Footer, Landingpagenav } from "../../widgets"
 import { Carousel } from "react-bootstrap";
 import { HomeAlone, GodFather, SoundofMusic } from "../../assets";
@@ -10,19 +10,19 @@ import "../../components/tabs/tabs.css";
 
 const Landingpage = (props) => {
 
-    const [movies, setMovies] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [movies, setMovies] = useState([]);
+    // const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchMovies = async () => {
-            const result = await axios(`https://rewind-test.herokuapp.com/movies`)
-            console.log(result.data.message);
+    // useEffect(() => {
+    //     const fetchMovies = async () => {
+    //         const result = await axios(`https://rewind-test.herokuapp.com/movies`)
+    //         console.log(result.data.message);
 
-            setMovies(result.data.message);
-            setIsLoading(false);
-        }
-        fetchMovies();
-    }, [])
+    //         setMovies(result.data.message);
+    //         setIsLoading(false);
+    //     }
+    //     fetchMovies();
+    // }, [])
 
 
     // const [moviesbycategory, setMoviesByCategory] = useState([]);
@@ -73,7 +73,7 @@ const Landingpage = (props) => {
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                     <Carousel.Item>
                         <img
-                            className="d-block  h-500"
+                            className="d-block"
                             src={HomeAlone}
                             alt="First slide"
                         />
@@ -94,47 +94,29 @@ const Landingpage = (props) => {
                     </Carousel.Item>
                 </Carousel>
             </section>
-            <section>
-           
-                <Card 
-                isLoading={isLoading} 
-                movies={movies} 
-                // toggleMovieModal={toggleMovieModal}  
-                // setMovieModal={setMovieModal}
-                // movieModal={movieModal}
-                
-                />
-                {/* <MovieModal movies={movies}/> */}
+
+            <section className="featured-movies">
+                <CarouselPage/>
+            </section>
+            <section className="recent-uploads">
+                <RecentUpload/>
             </section>
             <section>
-                <TabNav tabs={['Home', 'Settings', 'Profile']} selected={selected} setSelected={setSelected}>
-                    <Tab isSelected={selected === 'Home'}>
-                        <p>dhdhdhdhdh</p>
+                <TabNav tabs={['Adventure', 'Comedy', 'Horror', 'Action']} selected={selected} setSelected={setSelected}>
+                    <Tab isSelected={selected === 'Adventure'}>
+                        <TabsCard/>
                     </Tab>
-                    <Tab isSelected={selected === 'Settings'}>
+                    <Tab isSelected={selected === 'Comedy'}>
                         <p>sdjdnccudjcdcd</p>                        
                     </Tab>
-                    <Tab isSelected={selected === 'Profile'}>
+                    <Tab isSelected={selected === 'Horror'}>
                         <p>ddcodcodcdocdoc</p>
+                    </Tab>
+                    <Tab isSelected={selected === 'Action'}>
+                        <TabsActionCard/>
                     </Tab>
                 </TabNav>
             </section>     
-            <section>
-            <Carousel activeIndex={slider} onSelect={handleSlider}>
-                    
-                    {movies.map(movie => (
-                        
-                        <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={movie.coverpics_url}
-                            alt="Third slide"
-                        />
-                    </Carousel.Item>
-                    ))}
-                    
-                </Carousel>
-            </section>       
             <Footer/>
         </>
     )

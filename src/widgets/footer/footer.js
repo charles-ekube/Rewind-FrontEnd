@@ -10,7 +10,7 @@ const Footer = () => {
         <>
      <footer className=" ft-container-con ">
           <img src={RewindLogo} alt="logo" />
-          <p>© 2021 Rewind. All Rights Reserved.</p>
+          <span className="copy">© 2021 Rewind. All Rights Reserved.</span>
           <ul className="media-icons">
             <li>
                 <GrTwitter />

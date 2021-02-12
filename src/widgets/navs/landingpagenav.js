@@ -27,13 +27,47 @@ const Landingpagenav = () => {
   let menuMask 
 
   if(showMenu) {
-    menu =  <div 
+    menu =  <aside
     className="mobile-nav-menu"
     data-aos="fade-right"
      data-aos-offset="500"
      data-aos-easing="ease-in-sine"
     > 
-    this isc jvfnjfvjnvfjvnfvjfvjn the menu </div>
+          <a href="/">
+            <img src={RewindLogo} alt="RewindLogo" />
+          </a>
+            <ul className="mobile-nav-list">
+              <li className="mobile-nav-item">
+                <FaSearch onClick={SearchBar} />
+                <SearchModal
+                  showSearchBar={showSearchBar}
+                  setShowSearchBar={setShowSearchBar}
+                />
+              </li>
+              <li className="mobile-nav-item">
+                <Link>
+                    Home
+                </Link>
+              </li>
+              <li className="mobile-nav-item">
+                Categories
+              </li>
+              <li className="mobile-nav-item">
+                Support
+              </li>
+              <li className="mobile-nav-item">
+                  <Link to="/Login" className="signin-btn"> 
+                    Sign In
+                  </Link>
+              </li>
+              <li className="mobile-nav-item ">
+                 <Link to="/SignUp" id="signup-btn">
+                    Sign Up
+                 </Link>
+              </li>
+            </ul>    
+
+       </aside>
 
     menuMask = <aside 
     className="mobile-menu-mask"
@@ -50,23 +84,22 @@ const Landingpagenav = () => {
           <section className="nav-list-container">
             <ul className="nav-list">
               <li className="nav-item">
-                <FaSearch onClick={SearchBar} />
+                <FaSearch onClick={SearchBar} className="search-open-btn" />
                 <SearchModal
                   showSearchBar={showSearchBar}
                   setShowSearchBar={setShowSearchBar}
                 />
               </li>
               <li className="nav-item">
-                {/* <Link>
-                        Home
-                        </Link> */}
-                        Home
-                      </li>
-              <li className="nav-item">
-                All Movies
+                <Link>
+                    Home
+                </Link>
               </li>
               <li className="nav-item">
                 Categories
+              </li>
+              <li className="nav-item">
+                Support
               </li>
               <li className="nav-item">
                   <Link to="/Login" className="signin-btn"> 
