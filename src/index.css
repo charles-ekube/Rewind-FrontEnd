@@ -11,7 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+Link {
+  color:#fff;
+}
 @font-face {
   font-family:"AvenirNextLTPro";
   src: local("AvenirNextLTPro"), 
