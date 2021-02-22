@@ -6,7 +6,7 @@ import { RewindLogo } from "../../assets";
 import { FaSearch } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { SearchModal } from "../../widgets";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
  
 
 
@@ -33,21 +33,21 @@ const Landingpagenav = () => {
      data-aos-offset="500"
      data-aos-easing="ease-in-sine"
     > 
-          <a href="/">
+          <a href="/" className="mobile-logo">
             <img src={RewindLogo} alt="RewindLogo" />
           </a>
             <ul className="mobile-nav-list">
-              <li className="mobile-nav-item">
+              {/* <li className="mobile-nav-item">
                 <FaSearch onClick={SearchBar} />
                 <SearchModal
                   showSearchBar={showSearchBar}
                   setShowSearchBar={setShowSearchBar}
                 />
-              </li>
+              </li> */}
               <li className="mobile-nav-item">
-                <Link>
+                {/* <Link> */}
                     Home
-                </Link>
+                {/* </Link> */}
               </li>
               <li className="mobile-nav-item">
                 Categories
@@ -56,14 +56,14 @@ const Landingpagenav = () => {
                 Support
               </li>
               <li className="mobile-nav-item">
-                  <Link to="/Login" className="signin-btn"> 
+                  {/* <Link to="/Login" className="signin-btn">  */}
                     Sign In
-                  </Link>
+                  {/* </Link> */}
               </li>
               <li className="mobile-nav-item ">
-                 <Link to="/SignUp" id="signup-btn">
+                 {/* <Link to="/SignUp" id="signup-btn"> */}
                     Sign Up
-                 </Link>
+                 {/* </Link> */}
               </li>
             </ul>    
 
@@ -91,9 +91,9 @@ const Landingpagenav = () => {
                 />
               </li>
               <li className="nav-item">
-                <Link>
+                {/* <Link> */}
                     Home
-                </Link>
+                {/* </Link> */}
               </li>
               <li className="nav-item">
                 Categories
@@ -102,14 +102,14 @@ const Landingpagenav = () => {
                 Support
               </li>
               <li className="nav-item">
-                  <Link to="/Login" className="signin-btn"> 
+                  {/* <Link to="/Login" className="signin-btn">  */}
                     Sign In
-                  </Link>
+                  {/* </Link> */}
               </li>
-              <li className="nav-item ">
-                 <Link to="/SignUp" id="signup-btn">
+              <li className="nav-item " id="signup-btn">
+                 {/* <Link to="/SignUp" > */}
                     Sign Up
-                 </Link>
+                 {/* </Link> */}
               </li>
             </ul>
 

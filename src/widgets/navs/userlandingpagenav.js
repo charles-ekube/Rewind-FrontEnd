@@ -6,7 +6,7 @@ import { RewindLogo } from "../../assets";
 import { FaSearch } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { SearchModal } from "../../widgets";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
  
 
 
@@ -52,14 +52,14 @@ const Userlandingpagenav = () => {
                 Categories
               </li>
               <li className="nav-item">
-                  <Link to="/Login" className="signin-btn"> 
+                  {/* <Link to="/Login" className="signin-btn">  */}
                     Username
-                  </Link>
+                  {/* </Link> */}
               </li>
               <li className="nav-item ">
-                 <Link to="/" id="signup-btn">
+                 {/* <Link to="/" id="signup-btn"> */}
                     Logout
-                 </Link>
+                 {/* </Link> */}
               </li>
             </ul>
 
