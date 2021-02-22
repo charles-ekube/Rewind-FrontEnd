@@ -1,0 +1,215 @@
+/* @font-face {
+    font-family: AvenirNextLTPro;
+} */
+
+.grid-layout-100 {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr);
+}
+.grid-layout-50 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+}
+
+.sign-up-container {
+    display:grid;
+    grid-template-columns: 65% 35%;
+    width:100%;
+    height: 100px !important;
+    z-index: 4;
+    position: relative;
+    top: 0;
+    
+}
+.sign-in-container {
+    display:grid;
+    grid-template-columns: 65% 35%;
+    width:100%;
+    height: 640px;
+    margin:auto  auto;
+    z-index: 4;
+    position: relative;
+    top: 0;
+}
+.sign-up-form {
+    padding:10px 119px;
+    position: relative;
+    left: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 2px 4px 8px #585858;
+}
+.sign-up-form-header {
+    width: 376px;
+    margin: auto;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.sign-up-form-header  h2 {
+    font-family: Manrope;
+font-style: normal;
+font-weight: bold;
+width: 134px;
+height: 40px;
+font-size: 36px;
+line-height: 110%;
+padding-bottom: 10px;
+color: #1C1C1C;
+}
+.sign-up-form-header span {
+    font-family: Avenir Next LT Pro;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+width: 210px;
+height: 24px;
+letter-spacing: 0.5px;
+color: rgba(40, 44, 64, 0.6);
+
+}
+.sign-up-form-label {
+    width: 376px;
+    height: 16px;
+    margin: auto;
+    padding: 10px 0;
+    color: #82869A;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Avenir Next LT Pro;
+    font-style: normal;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+}
+.sign-up-form-input {
+    padding: 10px 0;
+    outline: none;
+    border: none;
+    width: 376px;
+    margin:0 auto 25px auto ;
+    border-bottom: 2px solid #8C8C8C;
+    background-color: #fff !important;
+}
+small {
+    color:red;
+    margin-top: -23px;
+    width: 376px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sign-up-form-input::placeholder {
+    font-size: 14px;
+    width: 166px;
+    height: 20px;
+    font-family: Avenir Next LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;    
+    color: #373C56;
+}
+
+
+.sign-up-btn {
+    background: #BD220B !important;
+    border-color: #BD220B !important;
+    border-radius: 8px;
+    width: 376px;
+    margin: 20px auto 0 auto;
+    height: 55px;
+    color:#fff;
+    border: none;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+    font-family: SF Pro Display;
+    letter-spacing: 0.15px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+.sign-up-btn:hover {
+    background: #BD220B;
+}
+.terms-pass-reset {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    padding: 20px 0;
+}
+.sign-up-aside {
+    background-color: black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.sign-up-success {
+    width: 70%;
+    padding: 70px 50px 50px 50px;
+    border-radius: 15px;
+    box-shadow: 2px 4px 8px #585858; 
+    position: relative;
+    margin: auto;
+    top: -620px;
+    z-index: 6;
+    display: none;
+}
+.sign-up-success p {
+    width: 30%;
+    margin: auto;
+    padding: 20px 0 10px 0;
+    font-family: SF Pro Display;
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 36px
+}
+.sign-up-success-btn {
+    background: #BD220B !important;
+    border-color: #BD220B !important;
+    border-radius: 8px;
+    margin: 30px auto !important;
+    height: 55px;
+    color: #fff;
+    width: 30%;
+    border: none;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+    /* font-family: SF Pro Display; */
+    letter-spacing: 0.15px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+.sign-up-container,
+.sign-in-container {
+    display:grid;
+    grid-template-columns: repeat(1, 1fr);
+    width:100%;
+    height: 100vh;
+    /* margin:auto  auto; */
+    z-index: 4;
+    /* position: relative; */
+    top: 0;
+    
+}
+.sign-up-aside,
+.sign-in-aside,
+.reset-pass-aside {
+    display: none;
+}
+
+}

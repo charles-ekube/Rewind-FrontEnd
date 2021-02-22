@@ -1,0 +1,16 @@
+.signup-btn {
+    background: #BD220B;
+    border-radius: 4px;
+    height: 35px;
+    width: 102px;
+    border: none;
+    color:#fff;
+    font-weight: bold;
+}
+
+.signin-btn {
+    background-color: inherit;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}

@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family:"AvenirNextLTPro";
+  src: local("AvenirNextLTPro"), 
+  url(./assets/fonts/AvenirNextLTPro-Bold.otf);
+}
+@font-face {
+  font-family:"AvenirNextLTPro";
+  src: local("AvenirNextLTPro"),  url(./assets/fonts/AvenirNextLTPro-BoldCn.otf);
+}
+@font-face {
+  font-family:"AvenirNextLTPro";
+  src: local("AvenirNextLTPro"),  url(./assets/fonts/AvenirNextLTPro-Demi.otf);
+}
+@font-face {
+  font-family:"AvenirNextLTPro";
+  src: local("AvenirNextLTPro"),  url(./assets/fonts/AvenirNextLTPro-DemiCn.otf);
+}
+
+@font-face {
+  font-family:"AvenirNextLTPro";
+  src: local("AvenirNextLTPro"),  url(./assets/fonts/AvenirNextLTPro-It.otf);
+}
+@font-face {
+  font-family:"AvenirNextLTPro";
+  src: local("AvenirNextLTPro"),  url(./assets/fonts/AvenirNextLTPro-Regular.otf);
+}
