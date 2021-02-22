@@ -62,3 +62,16 @@ export default App;
         })
         this.setState({ redirect: this.state.redirect === false });
     })
+
+
+
+display-grid
+    <section>
+      <aside>
+        <sidenav
+      </aside>
+      <section>
+          <nav/>
+          <main/>
+      </section>
+    </section>

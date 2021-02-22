@@ -1,142 +1,130 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import "../widgets.css";
 import AOS from "aos";
 import 'aos/dist/aos.css'
 import { RewindLogo } from "../../assets";
-import { FaSearch }  from "react-icons/fa";
-import { FiMenu }  from "react-icons/fi";
-import { SignInModal, SignUpModal, SearchModal } from "../../widgets";
-// import { SearchModal } from './searchmodal';
+import { FaSearch } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
+import { SearchModal } from "../../widgets";
+import { Link } from "react-router-dom";
 
 
 
-// Modal.setAppElement('#root');
 const Landingpagenav = () => {
-      AOS.init();
+  AOS.init();
 
 
-      //Search Bar Didplay Function
+  //Search Bar Didplay Function
   const [showSearchBar, setShowSearchBar] = useState(false);
-  
+
   const SearchBar = () => {
     setShowSearchBar(prev => !prev)
   }
 
-    //Movies Display Function
-  // const [query, setQuery] = useState('');
-  // const [movies, setMovies] = useState([]);
 
-  // const searchMovies = async (e) => {
-  //   e.preventDefault();
+  const [showMenu, setShowMenu] = useState(false);
+  let menu
+  let menuMask
 
-  //   try {
+  if (showMenu) {
+    menu = <aside
+      className="mobile-nav-menu"
+      data-aos="fade-right"
+      data-aos-offset="500"
+      data-aos-easing="ease-in-sine"
+    >
+      <a href="/">
+        <img src={RewindLogo} alt="RewindLogo" />
+      </a>
+      <ul className="mobile-nav-list">
+        <li className="mobile-nav-item">
+          <FaSearch onClick={SearchBar} />
+          <SearchModal
+            showSearchBar={showSearchBar}
+            setShowSearchBar={setShowSearchBar}
+          />
+        </li>
+        <li className="mobile-nav-item">
+          <Link to="/"  style={{color : '#FFF'}}>
+            Home
+          </Link>
+        </li>
+        <li className="mobile-nav-item">
+          Categories
+              </li>
+        <li className="mobile-nav-item">
+          Support
+              </li>
+        <li className="mobile-nav-item">
+          <Link to="/Login" className="signin-btn">
+            Sign In
+                  </Link>
+        </li>
+        <li className="mobile-nav-item ">
+          <Link to="/SignUp" id="signup-btn">
+            Sign Up
+                 </Link>
+        </li>
+      </ul>
 
-  //     const url = 'https://rewind-test.herokuapp.com/movies/search/movie?title={movie_search}';
-  //     const res = await fetch(url);
-  //     const data = await res.json();
-  //     setMovies(data);
-  //     console.log(data);
-  //     console.log(url);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // }
-    //  if(showSearchBar) {
+    </aside>
 
-        //  searchBar =<div className="search-bar-container" data-aos="fade-in" data-aos-duration="500">
-        //             <form onSubmit={searchMovies}>
-        //             <input 
-        //                  type="text" 
-        //                  placeholder="search keyword"
-        //                   className="movie-search-bar" 
-        //                   data-aos="fade-in"
-        //                    data-aos-duration="500"
-        //                    value={query}
-        //                    name="movie_search"
-        //                    onChange={(e) => setQuery(e.target.value)}
-        //                    />
-                      
-        //             </form>
-        //                     <div>
-        //         {/* {movies.map(movie => (
-        //             <section className="card" key={movies.id}>
-        //                 <div className="card-image">
-        //                     <img src={movie.coverpics_url} alt="poster"/>
-        //                 </div>
-        //                 <div className="card-text">
-        //                     <ul>
-        //                         <li>{movie.title}</li>
-        //                         <li>{movie.description}</li>
-        //                     </ul>
-        //                 </div>
-        //             </section>
-        //         ))} */}
-        //         {movies.title}
-        //     </div>
-        //             </div>
-        //  searchBarMask = <div className="mask" onClick={() => setShowSearchBar(false)}></div>
-        // //  console.log(query);
-    //  }
+    menuMask = <aside
+      className="mobile-menu-mask"
+      onClick={() => setShowMenu(false)}></aside>
+  }
+  return (
+    <>
 
+      <header>
+        <nav>
+          <a href="/">
+            <img src={RewindLogo} alt="RewindLogo" />
+          </a>
+          <section className="nav-list-container">
+            <ul className="nav-list">
+              <li className="nav-item">
+                <FaSearch onClick={SearchBar} className="search-open-btn" />
+                <SearchModal
+                  showSearchBar={showSearchBar}
+                  setShowSearchBar={setShowSearchBar}
+                />
+              </li>
+              <li className="nav-item">
+                <Link to="/"  style={{color : '#FFF'}}>
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                Categories
+              </li>
+              <li className="nav-item">
+                Support
+              </li>
+              <li className="nav-item">
+                <Link to="/Login" className="signin-btn"  style={{color : '#FFF'}}>
+                  Sign In
+                  </Link>
+              </li>
+              <li className="nav-item ">
+                <Link to="/SignUp" id="signup-btn">
+                  Sign Up
+                 </Link>
+              </li>
+            </ul>
 
-     const [signupmodalIsOpen, setSignupModalIsOpen] = useState(false);
+            <span className="mobile-nav-btn">
+              <FiMenu onClick={() => setShowMenu(!showMenu)} />
+            </span>
+          </section>
 
-    const togglesignupModal = () => {
-      setSignupModalIsOpen(prev => !prev);
-    }
+        </nav>
+      </header>
+      {menu}
+      {menuMask}
+    </>
+  )
+}
 
-    const [signinmodalIsOpen, setSigninModalIsOpen] = useState(false);
-
-    const togglesigninModal = () => {
-      setSigninModalIsOpen(prev => !prev);
-    }
-       
-     return (
-          <>
-
-            <header> 
-                <nav>
-                    <a href="/">
-                      <img src={RewindLogo} alt="RewindLogo"/>
-                    </a>
-                    <section className="nav-list-container">
-                    <ul className="nav-list">
-                      <li className="nav-item">
-                        <FaSearch onClick={SearchBar}/>
-                        <SearchModal showSearchBar={showSearchBar} setShowSearchBar={setShowSearchBar}/>
-                      </li>
-                      <li className="nav-item">
-                        {/* <Link>
-                        Home
-                        </Link> */}
-                        Home
-                      </li>
-                      <li className="nav-item">
-                        All Movies
-                      </li>
-                      <li className="nav-item">
-                        Categories
-                      </li>
-                      <li className="nav-item">
-                      <button onClick={togglesigninModal} className="signin-btn">Sign In</button>
-                        <SignInModal signinmodalIsOpen={signinmodalIsOpen} setSigninModalIsOpen={setSigninModalIsOpen}/>  
-                      </li>
-                      <li className="nav-item ">
-                        <button onClick={togglesignupModal} className="signup-btn">Sign Up</button>
-                        <SignUpModal modalIsOpen={signupmodalIsOpen} setModalIsOpen={setSignupModalIsOpen}/>
-                      </li>
-                    </ul>
-                    
-                    <span className="mobile-nav-btn">
-                        <FiMenu/>
-                    </span>
-                    </section>
-                    
-                </nav>
-            </header>
-          </>
-      ) 
- }
-
- export {Landingpagenav};
+export { Landingpagenav };
 

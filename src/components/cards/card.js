@@ -1,54 +1,74 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./cards.css";
-import {Junglebook} from "../../assets"
+import { MovieModal } from "../../components";
+import { Playicon } from "../../assets"
+import AOS from "aos";
+import 'aos/dist/aos.css'
+import { CgSpinnerTwo } from 'react-icons/cg';
+import axios from "axios";
 
-const Card = ({ movies, isLoading }) => {
+const Card = (props) => {
+    AOS.init();
 
-    return isLoading ? <h1>Loading....</h1> : <main className="card-grid">
-        {/* this.state.movies = movies */}
-            {movies.map( movie => (
-                // <h1>{movie.title}</h1>
-                <section className="card-container">
-                    <div className="card-body">
-                        <section className="card-image">
-                            <img src={movie.coverpics_url} alt="poster" />
-                            {/* <iframe src={movie.coverpics_url}></iframe> */}
-                        </section>
-                        <section className="card-title">
-                            <h4>{movie.title}</h4>
-                        </section>
-                        <section className="card-text">
-                            <p>{movie.description}</p>
-                        </section>
-                        <footer className="card-footer">
-                            <a href="google.com">{movie.release_date}</a>
-                        </footer>
-                    </div>
-                </section>
-            ))}
-    </main>
-    // return (
-    //     <main>
-    //     <section className="card-container">
-    //         <div className="card-body">
-    //             <section className="card-image">
-    //                 <img src={Junglebook} alt="poster"/> 
-    //             </section>
-    //             <section className="card-title">
-    //                 <h4>Card Title</h4>
-    //             </section>
-    //             <section className="card-text">
-    //                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-    //             </section>
-    //             <footer className="card-footer">
-    //                 <a href="google.com">Learn More</a>
-    //             </footer>
-    //         </div>
-    //     </section>
-      
-    //     </main>
+
+    const [movieModal, setMovieModal] = useState(false);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+    const toggleMovieModal = (e, movie) => {
+        setMovieModal(prev => !prev);
+        setSelectedMovie(movie);
         
-    // )
+    }
+
+    const [movies, setMovies] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchMovies = async () => {
+            const result = await axios(`https://rewind-test.herokuapp.com/movies/featured-movies`)
+            console.log(result.data.message);
+
+            setMovies(result.data.message);
+            setIsLoading(false);
+        }
+        fetchMovies();
+    }, [])
+
+
+
+    return  isLoading ? <h1 className="spinner animate__rotateIn"><CgSpinnerTwo/></h1> : <main
+    >
+        <section  className="card-grid">
+        {movies.map(movie => (
+            <section className="movie-container-holder"  key={movie._id}>
+                <div className="movie-container"  data-aos="fade-up" data-aos-duration="1000">
+                    <section className="movie-poster">
+                        <img src={movie.coverpics_url} alt="poster" />
+                        <span className="movie-poster-overlay" >
+                            <button onClick={(e) => toggleMovieModal(e, movie)}>click me</button>
+                            <img src={Playicon} alt='play'/>
+                        </span>
+                    </section>
+                    <section className="movie-title">
+                        <h4>{movie.title}</h4>
+                    </section>
+                    <section className="movie-container-footer">
+                        <ul>
+                            <li>{movie.release_date}</li>
+                            <li>Coloured</li>
+                            <li>2hr 9mins</li>
+                        </ul>
+                    </section>
+
+                </div>
+            </section>
+        ))}
+        <MovieModal movieModal={movieModal} selectedMovie={selectedMovie}  setMovieModal={setMovieModal} />
+        </section>
+        
+    </main>
+    
+    
 }
 
-export {Card}
+export { Card }

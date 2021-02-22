@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav {
+  width: 100%;
+  height: 80px;
+  background-color: #000000;
+  position: fixed;
+}
+
+.dashboard-icon {
+  display: flex;
+  /* justify-content: flex-end; */
+}
+.profile-container {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.profile-container h3 {
+  color: palegreen;
+}
+
+.profile-avatar img {
+  border-radius: 50%;
+  border: 5px solid palegreen;
+}
+
+/* 
+nav {
+  width: 100%;
+  height: 80px;
+  background-color: #000000;
+  position: fixed;
+  z-index: 4;
+}
+
+.dashboard-icon {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+
+.profile-container h3 {
+  color: palegreen;
+  margin: 0 40px;
+}
+
+.search {
+  margin: 0 40px;
+}
+
+.notification-bell {
+  margin: 0 40px;
+}
+
+.profile-avatar img {
+  border-radius: 50%;
+} */
