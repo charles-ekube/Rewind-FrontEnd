@@ -3,7 +3,6 @@ import { Google, Facebook, Or, Twitter, Logo } from "../../assets";
 import "./Login.css";
 import {Link, useHistory} from "react-router-dom";
 import axios from 'axios';
-import {ProtectedRoutes} from '../../pages' ;
 import swal from "sweetalert";
 
 
@@ -44,13 +43,7 @@ const Login = () => {
   //   }
   // }, []);
 
-  const handleLogout = () => {
-    setUser({});
-    setEmail("");
-    setPassword("");
-    localStorage.clear();
-
-  };
+ 
   const history =useHistory();
   if (user) {
     console.log(user);

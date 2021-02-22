@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Google, Facebook, Or, Twitter, Logo } from "../../assets";
 import "./Sign_up.css";
 import { Link } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 import swal from "sweetalert";
 
 const SignUp = () => {
@@ -11,7 +11,7 @@ const SignUp = () => {
   const { register, handleSubmit, errors, watch } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
-  const emailReg = '/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
+  
   // const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 
@@ -53,14 +53,7 @@ const SignUp = () => {
     }
   }
 
-  const validateEmail = async (value) => {
-    if (value.pattern === emailReg) {
-      return false
-    }
-    else {
-      return true
-    }
-  }
+  
 
   return (
     <>
@@ -78,12 +71,9 @@ const SignUp = () => {
                 name="email"
                 type="email"
                 placeholder="Enter your email address"
-                ref={register({ required: true, validate: validateEmail })}
+                ref={register({ required: true })}
               />
               {errors.email && <small>This field is required</small>}
-              {errors.email && errors.email.type === "validate" && (
-                <small className="error">Enter valid email</small>
-              )}
             </div>
             <div>
 

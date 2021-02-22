@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { TabsCard, TabsActionCard, TabNav, Tab, CarouselPage, RecentUpload, AllMovies } from "../../components";
+import {CarouselPage, RecentUpload, AllMovies } from "../../components";
 import { Footer, Landingpagenav } from "../../widgets"
 import { Carousel } from "react-bootstrap";
 import { HomeAlone, GodFather, SoundofMusic } from "../../assets";
@@ -9,24 +9,13 @@ import "../../components/tabs/tabs.css";
 
 const Landingpage = (props) => {
 
-    const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
 
     };
-
-    const [slider, setSlider] = useState(0)
-    const handleSlider = (selectedSlider, e) => {
-        setSlider(selectedSlider);
-    }
-
-    const [selected, setSelected] = useState("Home");
-
-    useEffect((tab) => {
-        setSelected(tab);
-    }, [])
-
+  
     return (
         <>
             <Landingpagenav />
