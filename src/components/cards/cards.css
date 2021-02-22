@@ -1,0 +1,242 @@
+.card-grid {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    padding: 120px;
+    background-color: #111111;
+    width: 100%;
+    
+}
+.movie-container {
+    width: 250px;
+    height: 444px;
+    border-radius: 10px;
+    background-color: inherit;
+    color: #fff;
+    margin-bottom: 30px;
+
+}
+/* .movie-poster img {
+    width: 100%;
+    height: 376px;
+    border-radius:10px;
+} */
+.movie-poster {
+    position: relative;
+}
+.movie-poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+.movie-poster-overlay button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFF;
+    font-size: 30px;
+    position: absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    top: 180px;
+    left: 100px;
+
+}
+.movie-poster:hover .movie-poster-overlay {
+    display: block;
+}
+.movie-title {
+width: 233px;
+height: 14px;
+font-family: SF Pro Display;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 24px;
+color: #FFFFFF;
+padding: 15px 0 16px 0;
+}
+.movie-container-footer ul {
+    display: flex;
+    justify-content:space-between;
+    width: 160px;
+    list-style: none;
+    height: 14px;
+    font-family: Avenir Next LT Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #8C8C8C;
+    padding: 10px 0 0 0;
+}
+
+.movie-modal-background {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+}
+
+.movie-modal-box {
+    width: 400px;
+    height: 500px;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: 0;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.movie-modal-box img {
+    width: 100%;
+    height: 334px;
+    border-radius: 10px 10px 0 0;
+}
+.play-btn-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 334px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.play-btn-overlay img {
+    height: 100px;
+    width: 100px;
+}
+.movie-description {
+    background-color: #262626;
+    display: grid;
+    color: #fff;
+    padding:24px 32px 24px 32px;
+    border-radius: 0 0 10px 10px;
+}
+
+.movies-description-content ul li h4 {
+    font-family: Avenir Next LT Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.25px;
+    color: #FFFFFF;
+}
+.movies-description-content ul {
+    display: grid;
+    align-items: center;
+    grid-template-columns:25% 50% 25%;
+    width: 100%;
+    font-family: Avenir Next LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #8C8C8C;
+}
+
+.movies-description-content ul .date-time ul {
+    display: flex;
+   justify-content: space-between;
+    border: 1px solid red;  
+}
+.movie-description .genre {
+    font-family: Avenir Next LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #8C8C8C;
+
+}
+.movie-description article{
+    font-family: Avenir Next LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: #F8F8FF;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+#cd-btn {
+    position: absolute;
+    border-radius: 50% ;
+    border:none;
+    top: 32px;
+    right: 34px;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(242, 210, 182, 0.4);
+    opacity: 0.4;
+    color: #fff;
+
+
+}
+
+
+
+
+
+
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1200px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    .card-grid {
+        display: grid; 
+        gap:0;
+        width: 100%;
+        padding: 0;
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+    .card-container {
+        /* width: 320px; */
+        height: 452px;
+        /* box-shadow: 2px 4px 8px #585858; */
+        border-radius: 10px;
+        background-color: inherit;
+        color: #fff;
+    }
+  }
+  @media only screen 
+  and (min-device-width: 400px) 
+  and (max-device-width: 768px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .card-grid {
+        display: grid; 
+        /* gap:50px 0; */
+        grid-template-columns: repeat(2, 1fr);
+        
+    } 
+  }

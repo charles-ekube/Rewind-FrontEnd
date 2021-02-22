@@ -1,0 +1,130 @@
+import React, { useState } from 'react';
+import "../widgets.css";
+import AOS from "aos";
+import 'aos/dist/aos.css'
+import { RewindLogo } from "../../assets";
+import { FaSearch } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
+import { SearchModal } from "../../widgets";
+import { Link } from "react-router-dom";
+
+
+
+const Landingpagenav = () => {
+  AOS.init();
+
+
+  //Search Bar Didplay Function
+  const [showSearchBar, setShowSearchBar] = useState(false);
+
+  const SearchBar = () => {
+    setShowSearchBar(prev => !prev)
+  }
+
+
+  const [showMenu, setShowMenu] = useState(false);
+  let menu
+  let menuMask
+
+  if (showMenu) {
+    menu = <aside
+      className="mobile-nav-menu"
+      data-aos="fade-right"
+      data-aos-offset="500"
+      data-aos-easing="ease-in-sine"
+    >
+      <a href="/">
+        <img src={RewindLogo} alt="RewindLogo" />
+      </a>
+      <ul className="mobile-nav-list">
+        <li className="mobile-nav-item">
+          <FaSearch onClick={SearchBar} />
+          <SearchModal
+            showSearchBar={showSearchBar}
+            setShowSearchBar={setShowSearchBar}
+          />
+        </li>
+        <li className="mobile-nav-item">
+          <Link to="/"  style={{color : '#FFF'}}>
+            Home
+          </Link>
+        </li>
+        <li className="mobile-nav-item">
+          Categories
+              </li>
+        <li className="mobile-nav-item">
+          Support
+              </li>
+        <li className="mobile-nav-item">
+          <Link to="/Login" className="signin-btn">
+            Sign In
+                  </Link>
+        </li>
+        <li className="mobile-nav-item ">
+          <Link to="/SignUp" id="signup-btn">
+            Sign Up
+                 </Link>
+        </li>
+      </ul>
+
+    </aside>
+
+    menuMask = <aside
+      className="mobile-menu-mask"
+      onClick={() => setShowMenu(false)}></aside>
+  }
+  return (
+    <>
+
+      <header>
+        <nav>
+          <a href="/">
+            <img src={RewindLogo} alt="RewindLogo" />
+          </a>
+          <section className="nav-list-container">
+            <ul className="nav-list">
+              <li className="nav-item">
+                <FaSearch onClick={SearchBar} className="search-open-btn" />
+                <SearchModal
+                  showSearchBar={showSearchBar}
+                  setShowSearchBar={setShowSearchBar}
+                />
+              </li>
+              <li className="nav-item">
+                <Link to="/"  style={{color : '#FFF'}}>
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                Categories
+              </li>
+              <li className="nav-item">
+                Support
+              </li>
+              <li className="nav-item">
+                <Link to="/Login" className="signin-btn"  style={{color : '#FFF'}}>
+                  Sign In
+                  </Link>
+              </li>
+              <li className="nav-item ">
+                <Link to="/SignUp" id="signup-btn">
+                  Sign Up
+                 </Link>
+              </li>
+            </ul>
+
+            <span className="mobile-nav-btn">
+              <FiMenu onClick={() => setShowMenu(!showMenu)} />
+            </span>
+          </section>
+
+        </nav>
+      </header>
+      {menu}
+      {menuMask}
+    </>
+  )
+}
+
+export { Landingpagenav };
+
