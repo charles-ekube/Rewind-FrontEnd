@@ -1,20 +1,18 @@
+
 import React from "react";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-// import {Landingpage} from "./pages";
 import {Landingpagenav} from "./widgets";
-// import {Card} from "./components"
-// import {RecoverPassword} from './pages';
-// import {L}
 import './App.css';
 import { Landingpage, SignUp, SignIn, Test } from "./pages";
-// import {SearchFn} from "./widgets"
-
+import './App.css';
+import {Signup} from "./pages";
 
 function App() {
 
   return (
+
     <>
-    {/* <Landingpagenav/> */}
+
     <Landingpage/>
     {/* <SignUp/> */}
     {/* <Router>
